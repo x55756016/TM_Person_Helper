@@ -1,0 +1,110 @@
+﻿<style>
+    th, td {
+        vertical-align: middle !important;
+        text-align: center !important;
+        word-wrap: break-word;
+    }
+    .loading span{
+        text-align:center;
+    }
+</style>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            注册用户信息
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="table-layout:fixed;">
+                        <caption>
+                            <label class="col-md-2 col-lg-1 control-label " style="padding-top: 7px; margin-bottom: 0; text-align: right; ">开始日期</label>
+                            <div class="col-md-3 col-lg-2">
+                                <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" datepicker>
+                                    <input id="txt_DateStart" class="form-control" size="16" type="text" value="" ng-model="DateStart" placeholder="选择开始日期" />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                </div>
+                            </div>
+                            <label class="col-md-2 col-lg-1 control-label " style="padding-top: 7px; margin-bottom: 0; text-align: right; ">结束日期</label>
+                            <div class="col-md-3 col-lg-2">
+                                <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" datepicker>
+                                    <input id="txt_DateEnd" class="form-control" size="16" type="text" value="" ng-model="DateEnd" placeholder="选择结束日期" />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-info" ng-click="Search()">查询</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-info" ng-click="SearchCount('DD')">用户注册趋势</button>
+                            </div>
+                            <label class="col-md-3 control-label " style="padding-top: 7px; margin-bottom: 0; text-align: right; ">从“开始日期 00:00:00”到“结束日期 00:00:00”</label>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>年龄</th>
+                                <th>帐号</th>
+                                <th>联系方式</th>
+                                <th>所在地</th>
+                                <th>用户来源</th>
+                                <th>注册时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in Data">
+                                <td>{{$index}}</td>
+                                <td>{{d.UserName}}</td>
+                                <td>{{d.Sex==1?"男":d.Sex==0?"女":"未知"}}</td>
+                                <td>{{d.Age}}</td>
+                                <td>{{d.LoginName}}</td>
+                                <td>{{d.MobilePhone}}</td>
+                                <td>{{d.Address}}</td>
+                                <td>{{d.UserSource}}</td>
+                                <td>{{d.InputTime|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="pager" class="pull-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/Scripts/echarts.min.js"></script>
+
+<!--遮罩层-->
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width:60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">用户注册趋势</h4>
+            </div>
+            <form ng-submit="processForm()" name="myForm">
+                <div class="modal-body">
+                    <div class="row head">
+                        <div class="col-lg-12">
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" id="main" style="height:700px;">
+                        
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top-width:0;">
+                    <button type="button" class="btn btn-default" id="btnClose" data-dismiss="modal">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

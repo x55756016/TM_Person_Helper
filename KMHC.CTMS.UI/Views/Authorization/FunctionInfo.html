@@ -1,0 +1,93 @@
+﻿<div class="container-fluid">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4><i class="fa fa-fw fa-cog"></i>菜单明细</h4>
+        </div>
+        <div class=" panel-body">
+            <div class="col-md-12 form-horizontal">
+                <div class="form-group  has-feedback">
+                    <label class="col-md-2 col-lg-1 col-sm-4 control-label">菜单名称</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="Info.Name" />
+                    </div>
+                    <label class="col-md-2 col-lg-1 col-sm-4 control-label">菜单编码</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="Info.Code" />
+                    </div>
+                </div>
+                <div class="form-group  has-feedback">
+                    <label class="col-md-2 col-lg-1 col- sm-4 control-label">默认展开</label>
+                    <div class="col-md-3">
+                        <label class="radio-inline">
+                            <input type="radio" name="ExPandRadio" value="true" ng-model="Info.IsExpand"> 是
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ExPandRadio" value="false" ng-model="Info.IsExpand"> 否
+                        </label>
+                    </div>
+                    <label class="col-md-2 col-lg-1 col-sm-4 control-label">父菜单</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="Info.FatherName" readonly="readonly" data-toggle="modal" data-target="#modalFather" />
+                        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-1"><button class="btn btn-danger" ng-click="Clear()">清除</button></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 col-lg-1 col-sm-4 control-label">菜单图标</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="Info.Icon" />
+                    </div>
+                    <label class="col-md-2 col-lg-1 col-sm-4 control-label">菜单路径</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="Info.Url" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 col-lg-1 col-sm-4 control-label">排列序号</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="Info.Sort" />
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="btn btn-info col-md-offset-2" ng-click="Save()">保存</a>
+            <a href="javascript:void(0);" class="btn btn-info col-md-offset-2" ng-click="GoBack()">返回</a>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalFather" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label><i class="fa fa-fw fa-bell"></i>父菜单选择</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr class="info">
+                                <th>菜单名称</th>
+                                <th>菜单编码</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in Father">
+                                <td>{{x.Name}}</td>
+                                <td>{{x.Code}}</td>
+                                <td><a href="javascript:void(0);" title="确定" ng-click="CheckFather(x)"><i class="fa fa-fw fa-check fa-lg"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="pager" class="pull-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

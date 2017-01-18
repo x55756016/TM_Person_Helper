@@ -1,0 +1,150 @@
+﻿
+<!--详情页-->
+<div class="container-fluid">
+	<div class="panel panel-info">
+	    <div class="panel-heading">
+	        <strong><i class="fa fa-fw fa-medkit fa-lg"></i>ctms_pm_task</strong>
+	    </div>
+	    <div class="panel-body">
+	        <form class="form-horizontal" name="InfoForm">
+	        		        		           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtPROJECTID">  所属项目</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtPROJECTID" ng-model="Info.PROJECTID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtPRETASKID">  前置任务</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtPRETASKID" ng-model="Info.PRETASKID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtFATHERTASKID">  父级任务</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtFATHERTASKID" ng-model="Info.FATHERTASKID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtORDERNUMBER">  任务编号</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtORDERNUMBER" ng-model="Info.ORDERNUMBER"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtTASKNAME">  任务名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtTASKNAME" ng-model="Info.TASKNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCOSTTIME">  工期</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCOSTTIME" ng-model="Info.COSTTIME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtSTARTDATE">  开始时间</label>                
+		                			   					<div class="col-md-5">
+		   						 <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-date-orientation="bottom" datepicker>
+		                            <input id="txt_STARTDATE" class="form-control" size="10" type="text" value="" required ng-model="Info.STARTDATE" />
+		                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                        </div>
+		   					</div>                     
+		   							            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtENDDATE">  结束时间</label>                
+		                			   					<div class="col-md-5">
+		   						 <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-date-orientation="bottom" datepicker>
+		                            <input id="txt_ENDDATE" class="form-control" size="10" type="text" value="" required ng-model="Info.ENDDATE" />
+		                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                        </div>
+		   					</div>                     
+		   							            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtUSERNAME">  资源名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtUSERNAME" ng-model="Info.USERNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtPROGRESS">  进度</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtPROGRESS" ng-model="Info.PROGRESS"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtTASKREMARK">  任务说明</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtTASKREMARK" ng-model="Info.TASKREMARK"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtOWENRID">  所属人ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtOWENRID" ng-model="Info.OWENRID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        		           		        		           		        		           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCREATETIME">  创建时间</label>                
+		                			   					<div class="col-md-5">
+		   						 <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-date-orientation="bottom" datepicker>
+		                            <input id="txt_CREATETIME" class="form-control" size="10" type="text" value="" required ng-model="Info.CREATETIME" />
+		                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                        </div>
+		   					</div>                     
+		   							            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCREATEUSER">  创建人</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCREATEUSER" ng-model="Info.CREATEUSER"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtEDITTIME">  修改时间</label>                
+		                			   					<div class="col-md-5">
+		   						 <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-date-orientation="bottom" datepicker>
+		                            <input id="txt_EDITTIME" class="form-control" size="10" type="text" value="" required ng-model="Info.EDITTIME" />
+		                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                        </div>
+		   					</div>                     
+		   							            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtEDITUSER">  修改人</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtEDITUSER" ng-model="Info.EDITUSER"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtPMANAGER">  项目经理</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtPMANAGER" ng-model="Info.PMANAGER"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtISCOMFIRM">  是否已确认完成</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtISCOMFIRM" ng-model="Info.ISCOMFIRM"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtREALFINISHDATE">  实际完成时间</label>                
+		                			   					<div class="col-md-5">
+		   						 <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-date-orientation="bottom" datepicker>
+		                            <input id="txt_REALFINISHDATE" class="form-control" size="10" type="text" value="" required ng-model="Info.REALFINISHDATE" />
+		                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                        </div>
+		   					</div>                     
+		   							            </div>
+		            	           		            <div class="form-group">
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="btn btn-info btn-block" ng-click="GoBack()"><i class="fa fa-fw fa-reply-all"></i>返回</button>
+	                </div>
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="col-md-2 btn btn-info btn-block" ng-disabled="InfoForm.$invalid" ng-click="Save()"><i class="fa fa-fw fa-save"></i>确定</button>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+    </div>
+</div>

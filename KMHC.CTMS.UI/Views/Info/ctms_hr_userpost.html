@@ -1,0 +1,87 @@
+﻿
+<!--详情页-->
+<div class="container-fluid">
+	<div class="panel panel-info">
+	    <div class="panel-heading">
+	        <strong><i class="fa fa-fw fa-medkit fa-lg"></i>ctms_hr_userpost</strong>
+	    </div>
+	    <div class="panel-body">
+	        <form class="form-horizontal" name="InfoForm">
+	        		        		           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtISAGENCY">  是否代理:0非代理,1代理岗位</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtISAGENCY" ng-model="Info.ISAGENCY"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtUSERID">  员工ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtUSERID" ng-model="Info.USERID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtUSERNAME">  用户姓名</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtUSERNAME" ng-model="Info.USERNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCOMPANYID">  公司ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCOMPANYID" ng-model="Info.COMPANYID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtDEPARTMENTID">  部门ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtDEPARTMENTID" ng-model="Info.DEPARTMENTID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtPOSTID">  岗位ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtPOSTID" ng-model="Info.POSTID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCNAME">  公司名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCNAME" ng-model="Info.CNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtDEPARTMENTNAME">  部门名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtDEPARTMENTNAME" ng-model="Info.DEPARTMENTNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtPOSTNAME">  岗位名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtPOSTNAME" ng-model="Info.POSTNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtPOSTLEVEL">  岗位级别</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtPOSTLEVEL" ng-model="Info.POSTLEVEL"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCHECKSTATE">  审核状态</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCHECKSTATE" ng-model="Info.CHECKSTATE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        		           		        		           		        		           		        		           		        		           		            <div class="form-group">
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="btn btn-info btn-block" ng-click="GoBack()"><i class="fa fa-fw fa-reply-all"></i>返回</button>
+	                </div>
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="col-md-2 btn btn-info btn-block" ng-disabled="InfoForm.$invalid" ng-click="Save()"><i class="fa fa-fw fa-save"></i>确定</button>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+    </div>
+</div>

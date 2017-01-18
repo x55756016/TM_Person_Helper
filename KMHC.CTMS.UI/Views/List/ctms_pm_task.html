@@ -1,0 +1,98 @@
+﻿
+<!-- List.html -->
+<style type="text/css">
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+</style>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            ctms_pm_task
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-1 control-label">查询条件</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" ng-model="Keyword" />
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-info btn-block" ng-click="Search()">查询</button>
+                            </div>                          
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-info btn-block" ng-click="Add()">新建</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="overflow-x:scroll;width:100%;">
+                    <table class="table table-responsive table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                                        	                      		                            	                                <th style="min-width:100px;"> 所属项目</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 前置任务</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 父级任务</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 任务编号</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 任务名称</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 工期</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 开始时间</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 结束时间</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 资源名称</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 进度</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 任务说明</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 所属人ID</th>
+                      		                      		                            	                      		                            	                      		                            	                      		                            	                                <th style="min-width:100px;"> 创建时间</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 创建人</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 修改时间</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 修改人</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 项目经理</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 是否已确认完成</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 实际完成时间</th>
+                      		                      		                      			<th style="min-width: 120px;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in List">
+                                                                  	                                                                 	                                                                    		<td>{{x.PROJECTID}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.PRETASKID}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.FATHERTASKID}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.ORDERNUMBER}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.TASKNAME}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.COSTTIME}}</td>
+                                	                                	                                                                 	                                    										<td>{{x.STARTDATE | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                 	                                    										<td>{{x.ENDDATE | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                 	                                                                    		<td>{{x.USERNAME}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.PROGRESS}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.TASKREMARK}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.OWENRID}}</td>
+                                	                                	                                                                 	                                                                 	                                                                 	                                                                 	                                    										<td>{{x.CREATETIME | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                 	                                                                    		<td>{{x.CREATEUSER}}</td>
+                                	                                	                                                                 	                                    										<td>{{x.EDITTIME | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                 	                                                                    		<td>{{x.EDITUSER}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.PMANAGER}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.ISCOMFIRM}}</td>
+                                	                                	                                                                 	                                    										<td>{{x.REALFINISHDATE | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                <td><a href="javascript:void(0);" ng-click="Edit(x)">编辑</a> <a href="javascript:void(0);" ng-click="Remove(x)">删除</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="pager" class="pull-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--遮罩层-->
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>

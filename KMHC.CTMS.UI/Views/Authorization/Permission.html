@@ -1,0 +1,48 @@
+﻿<div class="container-fluid" ng-controller="PermissionCtrl">
+    <div class="panel panel-info">
+        <!--
+        <div class="panel-heading">
+            <a ng-click="Add()" href="javascript:void(0);" class="divider"><i class="fa fa-fw fa-plus "></i>新增</a>
+            <a ng-click="SearchCondition()" href="javascript:void(0);" class="divider"><i class="fa fa-fw fa-refresh fa-lg"></i>刷新</a>
+            <a href="javascript:void(0);" class="divider"><i class="fa fa-fw fa-download"></i>导出</a>
+            <div id="picker" style="display:inline-block;">
+                <i class="fa fa-fw fa-upload"></i>导入
+            </div>
+        </div>
+        -->
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr class="info">
+                        <th>权限名称</th>
+                        <th>权限编码</th>
+                        <th>权限值</th>
+                        <th>备注</th>
+                        <!--<th>操作</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="p in PermissionList">
+                        <td>{{p.PermissionName}}</td>
+                        <td>{{p.PermissionCode}}</td>
+                        <td>{{p.PermissionValue}}</td>
+                        <td>{{p.Remark}}</td>
+                        <!--<td>
+                            <a href="javascript:void(0);" title="编辑" ng-click="EditUser(u)"><i class="fa fa-fw fa-edit fa-lg"></i></a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="pager" class="pull-right"></div>
+    </div>
+
+    <div class="loading-modal" ng-show="loading">
+        <div class="loading">
+            <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+        </div>
+    </div>
+
+</div>
+
+

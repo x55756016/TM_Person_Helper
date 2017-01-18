@@ -1,0 +1,215 @@
+﻿p {
+    text-indent: 25px;
+}
+
+.footer {
+    background-color: rgb(248, 248, 248);
+    line-height: 25px;
+    height: 55px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 20px;
+}
+
+.footer_links a {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.btn-large {
+    padding: 11px 14px;
+    font-size: 17.5px;
+    border-radius: 6px;
+}
+
+.btn-small {
+    padding: 2px 10px;
+    font-size: 11.9px;
+    border-radius: 3px;
+}
+
+.btn-mini [class^="icon-"],
+.btn-mini [class*=" icon-"] {
+    margin-top: -1px;
+}
+
+.btn-mini {
+    padding: 0 6px;
+    font-size: 10.5px;
+    border-radius: 3px;
+}
+
+.btn [class^="glyphicon-"]::before {
+    vertical-align: -2px;
+}
+
+.btn-small [class^="glyphicon-"]::before,
+.btn-mini [class^="glyphicon-"]::before {
+    vertical-align: -1px;
+}
+.fixed_navi_bar {
+    position: fixed; right: 60px; bottom: 10px; width: 85px;
+}
+/*左侧菜单*/
+.sidebar-menu {
+}
+/*一级菜单*/
+.list-header,.nav-list .menu-first {
+    background: -ms-linear-gradient(top,#1553CC 0%,#2a99eb 100%);/*IE11*/
+    background:-moz-linear-gradient(top,#1553CC,#2a99eb);/*火狐*/ 
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#1553CC), to(#2a99eb));/*谷歌*/ 
+	background-image: -webkit-gradient(linear,left bottom,left top,color-start(0, #1553CC),color-stop(1, #2a99eb));/* Safari & Chrome*/
+	filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#1553CC', endColorstr='#2a99eb'); /*IE6 & IE7*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#1553CC', endColorstr='#2a99eb')"; /* IE8 */
+    color: #FFF;
+    cursor: pointer;
+    font-size: 18px;
+    list-style:none;
+}
+
+.list-content {
+    color: #228fdf;
+    border: 0;
+    border-top: 1px solid #e6eef5;
+}
+.menu-first {
+    height: 47px;
+    line-height: 47px;
+    border-bottom: 1px solid #e6eef5;
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 21px;
+}
+/*一级菜单鼠标划过状态*/
+.menu-first:hover {
+    text-decoration: none;
+    background-color: #d6d4d5;
+    border-top: 1px solid #b7b7b7;
+    border-bottom: 1px solid #acacac;
+}
+/*二级菜单*/
+
+.nav-list .menu-second{
+    text-indent: 40px;
+}
+
+.nav-list .menu-second li{
+     border-bottom: 1px solid #efefef;
+}
+
+
+.menu-second li {
+    margin-bottom: -1px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    list-style:none;
+}
+.menu-second li a {
+    background-color: #f7f9fb;
+    height: 35px;
+    color: #228fdf;
+    line-height: 35px;
+    font-size: 14px;
+    text-indent: 35px;
+}
+    /*二级菜单鼠标划过样式*/
+    .menu-second li:hover,.menu-second li.hover{
+        text-decoration: none;
+        background-color: #66c3ec;
+        border-top: 1px solid #83ceed;
+        border-bottom: 1px solid #83ceed;
+        border-right: 3px solid #f8881c;
+        border-left: 3px solid #66c3ec;
+    }
+
+      .menu-second li:hover a{
+        background-color: #66c3ec;
+    }
+
+/*二级菜单选中状态*/
+.menu-second-selected {
+    background-color: #66c3ec;
+    height: 31px;
+    line-height: 31px;
+    border-top: 1px solid #83ceed;
+    border-bottom: 1px solid #83ceed;
+    border-right: 3px solid #f8881c;
+    border-left: 3px solid #66c3ec;
+    text-align: center;
+}
+/*覆盖bootstrap的样式*/
+.nav-list, .nav-list li a {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.tab_label
+{
+    border-bottom-color: rgba(0, 0, 0, 0);
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-image-outset: 0px;
+border-image-repeat: stretch;
+border-image-slice: 100%;
+border-image-source: none;
+border-image-width: 1;
+border-left-color: rgba(0, 0, 0, 0);
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: rgba(0, 0, 0, 0);
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: rgba(0, 0, 0, 0);
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+border-top-style: solid;
+border-top-width: 1px;
+box-sizing: border-box;
+color: rgb(66, 139, 202);
+cursor: pointer;
+display: block;
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+height: 42px;
+line-height: 20px;
+list-style-image: none;
+list-style-position: outside;
+list-style-type: none;
+margin-right: 2px;
+padding-bottom: 10px;
+padding-left: 15px;
+padding-right: 15px;
+padding-top: 10px;
+position: relative;
+text-align: left;
+text-decoration: none;
+
+}
+
+.nav-tabs > li > .tab_label {
+  margin-right: 2px;
+  line-height: 1.428571429;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+
+.nav-tabs > li > .tab_label:hover {
+  border-color: #eeeeee #eeeeee #dddddd;
+}
+
+.nav-tabs > li.active > .tab_label,
+.nav-tabs > li.active > .tab_label:hover,
+.nav-tabs > li.active > .tab_label:focus {
+  color: #555555;
+  cursor: default;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-bottom-color: transparent;
+}
+
+input.ng-pristine {background-color: white;}
+input.ng-invalid {border-color: #f76120;}
+div.point-hand{ cursor: pointer;}

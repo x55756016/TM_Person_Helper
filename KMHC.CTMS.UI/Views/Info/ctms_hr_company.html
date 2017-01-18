@@ -1,0 +1,161 @@
+﻿
+<!--详情页-->
+<div class="container-fluid">
+	<div class="panel panel-info">
+	    <div class="panel-heading">
+	        <strong><i class="fa fa-fw fa-medkit fa-lg"></i>ctms_hr_company</strong>
+	    </div>
+	    <div class="panel-body">
+	        <form class="form-horizontal" name="InfoForm">
+	        		        		           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCOMPANYTYPE">  企业类型:1地产企业,2物流企业,3生产企业,4软件企业,零售企业</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCOMPANYTYPE" ng-model="Info.COMPANYTYPE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCOMPANRYCODE">  公司编号</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCOMPANRYCODE" ng-model="Info.COMPANRYCODE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtENAME">  公司英文名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtENAME" ng-model="Info.ENAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCNAME">  公司中文名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCNAME" ng-model="Info.CNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCOMPANYCATEGORY">  公司类型</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCOMPANYCATEGORY" ng-model="Info.COMPANYCATEGORY"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCITY">  所在地城市，系统字典中定义</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCITY" ng-model="Info.CITY"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCOUNTYTYPE">  0 中国大陆
+            1 中国香港
+            系统字典中定义</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCOUNTYTYPE" ng-model="Info.COUNTYTYPE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCOMPANYLEVEL">  公司级别</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCOMPANYLEVEL" ng-model="Info.COMPANYLEVEL"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtFATHERCOMPANYID">  父公司ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtFATHERCOMPANYID" ng-model="Info.FATHERCOMPANYID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtFATHERTYPE">  上级机构类型</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtFATHERTYPE" ng-model="Info.FATHERTYPE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtADDRESS">  公司地址</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtADDRESS" ng-model="Info.ADDRESS"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtLEGALPERSON">  法人代表</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtLEGALPERSON" ng-model="Info.LEGALPERSON"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtLINKMAN">  联系人姓名</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtLINKMAN" ng-model="Info.LINKMAN"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtTELNUMBER">  联系电话</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtTELNUMBER" ng-model="Info.TELNUMBER"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtLEGALPERSONID">  法人身份证号</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtLEGALPERSONID" ng-model="Info.LEGALPERSONID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtBUSSINESSLICENCENO">  营业执照号</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtBUSSINESSLICENCENO" ng-model="Info.BUSSINESSLICENCENO"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtBUSSINESSAREA">  经营范围</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtBUSSINESSAREA" ng-model="Info.BUSSINESSAREA"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtACCOUNTCODE">  银行账号</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtACCOUNTCODE" ng-model="Info.ACCOUNTCODE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtBANKID">  开户银行代码</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtBANKID" ng-model="Info.BANKID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtEMAIL">  电子邮件</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtEMAIL" ng-model="Info.EMAIL"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtZIPCODE">  邮政编码</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtZIPCODE" ng-model="Info.ZIPCODE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtFAXNUMBER">  传真</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtFAXNUMBER" ng-model="Info.FAXNUMBER"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCHECKSTATE">  审核状态</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCHECKSTATE" ng-model="Info.CHECKSTATE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        		           		        		           		        		           		        		           		        		           		        		           		        		           		        		           		        		           		            <div class="form-group">
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="btn btn-info btn-block" ng-click="GoBack()"><i class="fa fa-fw fa-reply-all"></i>返回</button>
+	                </div>
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="col-md-2 btn btn-info btn-block" ng-disabled="InfoForm.$invalid" ng-click="Save()"><i class="fa fa-fw fa-save"></i>确定</button>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+    </div>
+</div>

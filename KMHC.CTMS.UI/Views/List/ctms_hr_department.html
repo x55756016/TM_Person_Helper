@@ -1,0 +1,80 @@
+﻿
+<!-- List.html -->
+<style type="text/css">
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+</style>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            ctms_hr_department
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-1 control-label">查询条件</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" ng-model="Keyword" />
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-info btn-block" ng-click="Search()">查询</button>
+                            </div>                          
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-info btn-block" ng-click="Add()">新建</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="overflow-x:scroll;width:100%;">
+                    <table class="table table-responsive table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                                        	                      		                            	                                <th style="min-width:100px;"> 部门编号</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 部门名称</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 部门级别</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 公司ID</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 上级机构类型</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 上级机构ID</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 部门负责人ID</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 部门负责人姓名</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 部门职责</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 审核状态</th>
+                      		                      		                            	                      		                            	                      		                            	                      		                            	                      		                            	                      		                            	                      		                            	                      		                            	                      		                            	                      		                      			<th style="min-width: 120px;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in List">
+                                                                  	                                                                 	                                                                    		<td>{{x.DEPARTMENTCODE}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.DEPARTMENTNAME}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.DEPARTMENTLEVEL}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.COMPANYID}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.FATHERTYPE}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.FATHERID}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.DEPARTMENTBOSSHEAD}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.DEPARTMENTHEADNAME}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.DEPARTMENTFUNCTION}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.CHECKSTATE}}</td>
+                                	                                	                                                                 	                                                                 	                                                                 	                                                                 	                                                                 	                                                                 	                                                                 	                                                                 	                                                                 	                                                                <td><a href="javascript:void(0);" ng-click="Edit(x)">编辑</a> <a href="javascript:void(0);" ng-click="Remove(x)">删除</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="pager" class="pull-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--遮罩层-->
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f8658e69c1904df09359287a08e36952" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="tmpmModel.ctms_hr_company" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_hr_department" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_hr_post" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_hr_userpost" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_myproduct" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_pm_dotask" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_pm_itemconfirm" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_pm_itemreport" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_pm_project" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_pm_task" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sup_doctor" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sup_doctorgroup" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sup_doctorgroupdetail" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sup_doctorpatient" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_entitymenu" Width="1.5" PointX="4.75" PointY="12.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_errorcount" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_function" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_metadata" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_metadataparam" Width="1.5" PointX="14.75" PointY="5.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_modelsetting" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_permission" Width="1.5" PointX="14.75" PointY="15.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_role" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_rolefunction" Width="1.5" PointX="16.75" PointY="5.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_rolefunctionorg" Width="1.5" PointX="6.75" PointY="16.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_serveralarm" Width="1.5" PointX="8.75" PointY="16.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_serverinfo" Width="1.5" PointX="16.75" PointY="10.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_servermonitor" Width="1.5" PointX="16.75" PointY="14.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_sysmonitor" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_systeminfo" Width="1.5" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_userinfo" Width="1.5" PointX="18.75" PointY="5.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_userregrecord" Width="1.5" PointX="10.75" PointY="18.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_sys_userrole" Width="1.5" PointX="18.75" PointY="12.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_tk_timedtask" Width="1.5" PointX="18.75" PointY="17.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_tk_timedtaskdefine" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="tmpmModel.ctms_tk_timedtaskhis" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="tmpmModel.hr_area" Width="1.5" PointX="4.75" PointY="20.75" />
+        <EntityTypeShape EntityType="tmpmModel.hr_cnr_user" Width="1.5" PointX="20.75" PointY="6.75" />
+        <EntityTypeShape EntityType="tmpmModel.hr_dictionary" Width="1.5" PointX="6.75" PointY="20.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

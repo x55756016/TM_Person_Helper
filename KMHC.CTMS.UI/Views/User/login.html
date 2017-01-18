@@ -1,0 +1,140 @@
+﻿<style>
+    .inputItem {
+        width: 80%;
+        margin: 10px auto;
+        display: inline-block;
+    }
+
+    .inputItemInput {
+        margin-left: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        text-indent: 5px;
+        width: 200px;
+    }
+    input.ng-invalid{border-color:#ccc;}
+    td {
+        padding: 5px;
+    }
+
+    td, th {
+        text-align: center;
+    }
+</style>
+<div class="pull-left" style="width:69%;height:100%;">
+    <div class="slider">
+        <div class="slide"><img src="/Content/images/5.png"></div>
+        <div class="slide"><img src="/Content/images/2.jpg"></div>
+        <div class="slide"><img src="/Content/images/3.jpg"></div>
+        <div class="slide"><img src="/Content/images/4.jpg"></div>
+        <div class="slide"><img src="/Content/images/1.jpg"></div>
+    </div>
+</div>
+<div class="pull-right text-center" style="width:30%;height:100%;position:relative;border:1px solid #ccc;">
+    <form class="loginForm" ng-submit="processForm()" style="margin-top:10%;">
+        <div class="inputItem">
+            <label>用户名：</label>
+            <input type="text" name="txtUserName" id="txtUserName" class="inputItemInput" autocomplete="off" ng-model="formData.LoginName" placeholder="请输入用户名" required />
+        </div>
+        <div class="inputItem">
+            <label>密&nbsp;&nbsp;&nbsp;码：</label>
+            <input type="password" name="txtPassword" id="txtPassword" class="inputItemInput" autocomplete="off" ng-model="formData.LoginPwd" placeholder=" 请输入密码" style="margin-left:7px;" required />
+        </div>
+        <div class="inputItem">
+            <label for="chkKeepAlive" style="float:left;margin-left:5px;"><input type="checkbox" id="chkKeepAlive" />记住我</label>
+            <a style="float:right;text-decoration:none;cursor:pointer;" data-toggle="modal" data-target="#myResetPwdModal">忘记密码</a>
+        </div>
+        <div class="inputItem">
+            <button type="submit" style="text-align:center;float:left;" ng-disabled="loginForm.$invalid" class="btn btn-info form-control">登录</button>
+        </div>
+        <div class="inputItem">
+            <label style="float:left;line-height:34px;">还没有帐号</label>
+            <a style="text-align:center;float:right;" class="btn btn-info" data-toggle="modal" data-target="#myRegisterModal">注册</a>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="myResetPwdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">重置密码</h4>
+            </div>
+            <form ng-submit="processReset()" name="myReset">
+                <div class="modal-body">
+                    <table cellpadding="0" cellspacing="0" width="100%;">
+                        <caption>请选择重置密码的方式：</caption>
+                        <tr>
+                            <td class="text-center"><label><input type="radio" name="ResetType" id="ResetType_0" value="0" ng-model="resetData.ResetType" required />通过邮箱重置密码</label></td>
+                            <td class="text-right"><label style="line-height:44px;">请输入注册时的邮箱：</label></td>
+                            <td ng-class="resetEmailError"><input type="email" class="form-control" autocomplete="off" placeholder="请输入邮箱" ng-model="resetData.Email" maxlength="30" required /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" ng-disabled="myReset.$invalid">找回密码</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myRegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">新用户注册</h4>
+            </div>
+            <form ng-submit="processRegister()" name="myRegister">
+                <div class="modal-body">
+                    <table cellpadding="0" cellspacing="0" width="100%;">
+                        <tr>
+                            <td class="text-center"><label>用&nbsp;&nbsp;户&nbsp;&nbsp;名*：</label></td>
+                            <td><input type="text" class="form-control" autocomplete="off" placeholder="请输入用户名" ng-model="registerData.LoginName" required maxlength="30" /></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码*：</label></td>
+                            <td><input type="password" class="form-control" autocomplete="off" placeholder="请输入密码" ng-model="registerData.LoginPwd" name="LoginPwd" id="regLoginPwd" required maxlength="30" /></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><label>确认密码*：</label></td>
+                            <td><input type="password" class="form-control" autocomplete="off" placeholder="请再次输入密码" ng-model="registerData.ConfirmLoginPwd" required pw-check="regLoginPwd" maxlength="30" /></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><label>手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</label></td>
+                            <td><input type="text" class="form-control" autocomplete="off" placeholder="请输入手机" ng-model="registerData.MobilePhone" /></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><label>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label></td>
+                            <td><input type="text" class="form-control" autocomplete="off" placeholder="请输入邮箱" ng-model="registerData.Email" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-left"><label for="IsDoctor" style="margin-left: 33.5%;"><input type="checkbox" name="IsDoctor" id="IsDoctor" ng-model="registerData.IsDoctor" />我是医生</label></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" ng-disabled="myRegister.$invalid">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.slider').bxSlider({
+            slideWidth: 798,
+            controls: false,
+            slideMargin: 10,
+            auto: true
+        });
+    });
+</script>

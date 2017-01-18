@@ -1,0 +1,19 @@
+﻿<div class="panel">
+    <div class="panel-heading">
+        <h3>密码重置</h3>
+    </div>
+    <div class="panel-body">
+        <form ng-submit="processForm()" name="resetForm">
+            <label>请输入新密码：</label>
+            <input type="password" placeholder="新密码" autocomplete="off" class="form-control" ng-model="resetData.LoginPwd" required id="resetNewPwd" />
+            <label>请确认新密码：</label>
+            <input type="password" placeholder="确认新密码" autocomplete="off" class="form-control" ng-model="resetData.ConfirmLoginPwd" required pw-check="resetNewPwd" />
+            <button type="submit" class="btn btn-primary" ng-disabled="resetForm.$invalid">提交</button>
+        </form>
+    </div>
+</div>
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>

@@ -1,0 +1,296 @@
+﻿<style type="text/css">
+    .webuploader-pick {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        background: #D9EDF7;
+        padding: 0 0;
+        color: #337ab7;
+        text-align: center;
+        border-radius: 3px;
+        overflow: hidden;
+        width: auto;
+        top: 5px;
+    }
+
+    .webuploader-pick-hover {
+        background: #D9EDF7;
+    }
+</style>
+<div class="container-fluid" ng-controller="UserManageCtrl">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <i class="fa fa-fw fa-search-plus fa-lg"></i>
+            <strong data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                查询条件
+                <i class="fa fa-angle-down fa-fw pull-right"></i>
+            </strong>
+
+        </div>
+        <div class="panel-collapse collapse in" id="collapseExample">
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-12">
+                            <input type="text" class="form-control" ng-model="s_Name" id="name_search" placeholder="请输入账号或姓名进行查询" />
+                        </div>
+                        <div class="col-md-1 col-sm-12">
+                            <button type="button" class="btn btn-info btn-block form-control" ng-click="goSearch()"><i class="fa fa-fw fa-search"></i> 查询</button>
+                        </div>
+                        <div class="col-md-1 col-sm-12">
+                            <button type="button" class="btn btn-info btn-block  form-control" ng-click="Reset()"><i class="fa fa-fw fa-refresh"></i> 重置</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <!--<a ng-click="Add()" href="javascript:void(0);" class="divider"><i class="fa fa-fw fa-plus "></i>新增</a>
+            <a ng-click="SearchCondition()" href="javascript:void(0);" class="divider"><i class="fa fa-fw fa-refresh fa-lg"></i>刷新</a>
+            <a href="javascript:void(0);" class="divider"><i class="fa fa-fw fa-download"></i>导出</a>-->
+            <div id="picker" style="display:none;">
+                <i class="fa fa-fw fa-upload"></i>导入
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr class="info">
+                        <th>用户账号</th>
+                        <!--<th style="width:100px;">编号</th>-->
+                        <th>用户姓名</th>
+                        <th>手机号码</th>
+                        <th>电子邮件</th>
+                        <th>所属组织架构</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="u in UserList" ng-click="CheckRow($index)">
+                        <td>{{u.LOGINNAME}}</td>
+                        <td>{{u.USERNAME}}</td>
+                        <td>{{u.MOBILEPHONE}}</td>
+                        <td>{{u.EMAIL}}</td>
+                        <td>{{u.USERPOST}}</td>
+                        <td>{{u.STATUSTEXT}}</td>
+                        <td>
+                            <a href="javascript:void(0);" title="编辑角色"><i class="fa fa-fw fa-search fa-lg" ng-click="EditUserRole(u)"></i></a>
+                            <a href="javascript:void(0);" title="编辑" ng-click="EditUser(u)"><i class="fa fa-fw fa-edit fa-lg"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="pager" class="pull-right"></div>
+    </div>
+
+
+    <div class="modal fade" id="modalUserEdit" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel2">
+                        <label>用户信息</label>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">账号</label>
+                            <div class="col-md-9 highlight">
+                                {{CRUDUser.LoginName}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">姓名：</label>
+                            <div class="col-md-9 highlight">
+                                <input type="text" class="form-control" ng-model="CRUDUser.UserName" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">手机号码：</label>
+                            <div class="col-md-9 highlight">
+                                <input type="tel" class="form-control" ng-model="CRUDUser.MobilePhone" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">电子邮件：</label>
+                            <div class="col-md-9 highlight">
+                                <input type="text" class="form-control" ng-model="CRUDUser.Email" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">状态*：</label>
+                            <div class="col-md-9 highlight">
+                                <select class="form-control" ng-options="d.ivalue as d.text for d in DicUserStatusList|orderBy:'ivalue'" ng-model="CRUDUser.Status" required></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 ">用户类型*：</label>
+                            <div class="col-md-9 highlight">
+                                <label class="checkbox-inline" ng-repeat="r in DicUserTypeList">
+                                    <input type="radio" name="UserType" value="{{r.ivalue}}" ng-model="CRUDUser.UserType" style="vertical-align:top;" />{{r.text}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 ">我的医生：</label>
+                            <div class="col-md-9 highlight">
+                                <!--<label class="checkbox-inline" ng-repeat="r in DoctorList">
+                                    <input type="radio" name="MyDoctor" value="{{r.UserId}}" ng-model="CRUDUser.MyDoctor" style="vertical-align:top;" />{{r.Name}}
+                                </label>-->
+                                <input type="text" ng-readonly="true" ng-model="CRUDUser.MyDoctor.Name" /><button type="button" data-toggle="modal" data-target="#modalUserSearcher" ng-click="ChoiceDoctor()" ><i class="fa fa-fw fa-search fa-lg"></i></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 ">我的客服：</label>
+                            <div class="col-md-9 highlight">
+                                <!--<label class="checkbox-inline" ng-repeat="r in ServiceList">
+                                    <input type="radio" name="MyService" value="{{r.UserId}}" ng-model="CRUDUser.MyService" style="vertical-align:top;" />{{r.Name}}
+                                </label>-->
+                                <input type="text" ng-readonly="true" ng-model="CRUDUser.MyService.Name" /><button type="button" data-toggle="modal" data-target="#modalUserSearcher" ng-click="ChoiceService()"><i class="fa fa-fw fa-search fa-lg"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-click="SaveUser()" ng-disabled="modalUserEdit.$invalid">
+                        保存
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalUserRoleEdit" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel2">
+                        <label>用户信息</label>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">账号:</label>
+                            <div class="col-md-10">
+                                {{CRUDUserRole.User.LoginName}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="panel panel-default">
+                                <table class="table table-bordered" >
+                                    <tr>
+                                        <th>
+                                            <input type="checkbox" ng-change="ToggleAllRole()" ng-model="CRUDUserRole.AllSelected" />
+                                        </th>
+                                        <th>
+                                            角色名称
+                                        </th>
+                                        <th>
+                                            子系统
+                                        </th>
+                                    </tr>
+                                    <tr ng-repeat="r in CRUDUserRole.Roles">
+                                        <td>
+                                            <input type="checkbox" ng-model="r.IsSelected" />
+                                        </td>
+                                        <td>
+                                            {{r.RoleName}}
+                                        </td>
+                                        <td>
+                                            肿瘤全流程
+                                        </td>
+                                    </tr>
+                                </table> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-click="SaveUserRole()" ng-disabled="modalUserRoleEdit.$invalid">
+                        保存
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalUploader" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel2">
+                        <label>导入进度</label>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <label class="text-danger">*导入完毕之前请不要关闭页面</label>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width:{{ Data .progress; }};">
+                            {{Data.progress}}
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <div class="loading-modal" ng-show="loading">
+        <div class="loading">
+            <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalUserSearcher" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel2">
+                        <label>选择用户</label>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div ng-include="'/Views/Common/UserSearcher.html'"></div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+</div>
+
+

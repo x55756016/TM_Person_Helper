@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="HMS" Label="HMS" Category="Project" />
+    <Node Id="FineUI 4.1.5" Label="FineUI 4.1.5" Category="Package" />
+    <Node Id="jQuery 1.9.1" Label="jQuery 1.9.1" Category="Package" />
+    <Node Id="KendoUIProfessional 2014.2.716" Label="KendoUIProfessional 2014.2.716" Category="Package" />
+    <Node Id="Newtonsoft.Json 6.0.5" Label="Newtonsoft.Json 6.0.5" Category="Package" />
+    <Node Id="HMSServiceLibrary" Label="HMSServiceLibrary" Category="Project" />
+    <Node Id="EntityFramework 6.0.0" Label="EntityFramework 6.0.0" Category="Package" />
+  </Nodes>
+  <Links>
+    <Link Source="FineUI 4.1.5" Target="Newtonsoft.Json 6.0.5" Category="Package Dependency" />
+    <Link Source="KendoUIProfessional 2014.2.716" Target="jQuery 1.9.1" Category="Package Dependency" />
+    <Link Source="HMS" Target="FineUI 4.1.5" Category="Installed Package" />
+    <Link Source="HMS" Target="KendoUIProfessional 2014.2.716" Category="Installed Package" />
+    <Link Source="HMSServiceLibrary" Target="EntityFramework 6.0.0" Category="Installed Package" />
+  </Links>
+  <Categories>
+    <Category Id="Project" />
+    <Category Id="Package" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
+      <Condition Expression="HasCategory('Project')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Package Dependency" ValueLabel="True">
+      <Condition Expression="HasCategory('Package Dependency')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>

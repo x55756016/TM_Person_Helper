@@ -1,0 +1,76 @@
+﻿
+<!DOCTYPE html>
+<html ng-app="userApp">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>@*@ViewBag.Title*@</title>
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+    @System.Web.Optimization.Scripts.Render("~/Script/bootstrap")
+</head>
+<body ng-controller="MyController">
+    <div id="wrapper">
+
+        <!-- 导航 -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#/"><strong>康美健康云肿瘤全程管理平台</strong></a>
+            </div>
+
+            <!-- 右侧用户信息菜单 -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @ViewBag.LoginName <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/#/UserInfo"><i class="fa fa-fw fa-user"></i>我的信息</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/#/"><i class="fa fa-fw fa-home"></i>首页</a></li>
+                <li><a href="javascript:void(0);" ng-click="logout()"><i class="fa fa-fw fa-power-off"></i>注销</a></li>
+            </ul>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <!--<ul class="nav navbar-nav side-nav">
+                    <li><a href="#/DictionaryManage"><i class="icon-list"></i> 系统字典</a></li>
+                    <li><a href="#/OrganizationManage"><i class="icon-list"></i> 组织架构</a></li>
+                    <li><a href="#/ModelSetting?type=0"><i class="icon-list"></i> 模块编码配置</a></li>
+                    <li><a href="#/ActiveStatistics"><i class="icon-list"></i> 用户活跃度统计</a></li>
+                    <li><a href="#/UserStatistics"><i class="icon-list"></i> 注册用户统计</a></li>
+                    <li><a href="#/ModelSetting?type=1"><i class="icon-list"></i> 错误编码配置</a></li>
+                    <li><a href="#/ErrorCount"><i class="icon-list"></i> 失败率统计</a></li>
+                    <li><a href="#/ServerMonitorSetting"><i class="icon-list"></i> 服务器监控配置</a></li>
+                    <li><a href="#/ServerMonitor"><i class="icon-list"></i> 服务器监控</a></li>
+                    <li><a href="#/ServerAlarmList"><i class="icon-list"></i> 服务器告警列表</a></li>
+                    <li><a href="#/Role"><i class="icon-list"></i> 角色管理</a></li>
+                    <li><a href="#/UserManage"><i class="icon-list"></i> 用户管理</a></li>
+                    <li><a href="#/SysFunction"><i class="icon-list"></i> 菜单管理</a></li>
+                </ul>-->
+                @(new HtmlString(ViewBag.MenuInfo))
+            </div>
+        </nav>
+
+        <!-- 内容框架 -->
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+                <!-- 左边菜单导航 -->
+                <div id="viewContainer" ng-view on-finish-view-render></div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+
+    </div>
+    <!-- /#wrapper -->
+    @System.Web.Optimization.Scripts.Render("~/Script/angular")
+</body>
+</html>

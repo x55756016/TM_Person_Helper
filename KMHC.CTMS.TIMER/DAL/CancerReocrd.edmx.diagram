@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8737bed239bf439d92e3a535e66de8ac" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="Model.CTMS_MYPRODUCT" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.CTMS_OD_ORDERS" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.CTMS_SUP_REQUESTRECORD" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.CTMS_SYS_USERINFO" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.CTMS_TK_TIMEDTASK" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Model.CTMS_TK_TIMEDTASKDEFINE" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Model.CTMS_USEREVENT" Width="1.5" PointX="8.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

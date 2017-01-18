@@ -1,0 +1,418 @@
+﻿<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md-3">
+            <div class="btn-group" role="group" aria-label="工具栏" style="margin:15px;">
+                <button type="button" class="btn btn-default btn-info btn-sm" ng-click="AddCompany()">新建医院</button>
+                <button type="button" class="btn btn-default btn-info btn-sm" ng-click="AddDepartment()">新建科室</button>
+                <button type="button" class="btn btn-default btn-info btn-sm" ng-click="AddPost()">新建岗位</button>
+                <button type="button" class="btn btn-default btn-info btn-sm" ng-click="EditOrg()">编辑</button>
+                <button type="button" class="btn btn-default btn-info btn-sm" ng-click="DelOrg()">删除</button>
+            </div>
+            <div ng-include="'/Views/Common/OrganizationManage.html'"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <i class="fa fa-fw fa-search-plus fa-lg"></i>
+                    <strong data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                        用户查询
+                        <i class="fa fa-angle-down fa-fw pull-right"></i>
+                    </strong>
+                </div>
+                <div class="panel-collapse collapse in" id="collapseExample">
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-1 col-md-2 control-label ">用户名</label>
+                                <div class="col-lg-3 col-md-6">
+                                    <input type="text" class="form-control" ng-model="UserName" />
+                                </div>
+                                <div class="col-lg-2 col-md-4">
+                                    <button type="button" class="btn btn-info btn-block form-control"
+                                            ng-model="TestButton" ng-click="Search()">
+                                        <i class="fa fa-fw fa-search">
+                                        </i> 查询
+                                    </button>
+                                </div>
+                                <div class="col-lg-2 col-md-4">
+                                    <button class="btn btn-info btn-block  form-control" type="Reset" ng-click="Reset()">
+                                        <i class="fa fa-fw fa-refresh"></i> 重置
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <a ng-click="AddUserPost()" href="javascript:void(0);" class="divider"><i class="fa fa-fw fa-plus "></i>新建用户岗位</a>
+                    <a ng-click="SearchCondition()" href="javascript:void(0);" class="divider"><i class="fa fa-fw fa-refresh fa-lg"></i>刷新</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr class="info">
+                                <th>医院</th>
+                                <th>科室</th>
+                                <th>岗位</th>
+                                <th>登录帐号</th>
+                                <th>用户姓名</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in List" ng-click="CheckRow($index)">
+                                <td>{{x.CName}}</td>
+                                <td>{{x.DepartmentName}}</td>
+                                <td>{{x.PostName}}</td>
+                                <td>{{x.UserLoginName}}</td>
+                                <td>{{x.UserName}}</td>
+                                <td>{{x.CreateDate|date:'yyyy-MM-dd'}}</td>
+                                <td>
+                                    <a href="javascript:void(0);" ng-click="Remove(x.EmployeepostID)" title="删除" class="text-danger"><i class="fa fa-fw fa-remove fa-lg"></i></a>
+                                    <a href="javascript:void(0);" ng-click="Edit(x)" title="编辑" class="text-info"><i class="fa fa-fw fa-edit fa-lg"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pager" class="pull-right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalCompany" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel2">
+                    <label>医院信息</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">医院/公司名</label>
+                        <div class="col-md-9 for">
+                            <input type="text" ng-model="Company.CName" class="form-control" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="SaveCompany()">
+                    <i class="fa fa-fw fa-save"></i>
+                    保存
+                </button>
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    <i class="fa fa-fw fa-close"></i>
+                    取消
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalDepartment" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel3">
+                    <label>科室信息</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">医院/公司名</label>
+                        <div class="col-md-9 for">
+                            <input type="text" ng-model="Department.CName" class="form-control" readonly="readonly" ng-click="SelectCompany()" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">科室名</label>
+                        <div class="col-md-9 for">
+                            <input type="text" ng-model="Department.DepartmentName" class="form-control" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="SaveDepartment()" >
+                    <i class="fa fa-fw fa-save"></i>
+                    保存
+                </button>
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    <i class="fa fa-fw fa-close"></i>
+                    取消
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalPost" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel6" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel6">
+                    <label>新增岗位</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">请选择科室</label>
+                        <div class="col-md-9 for">
+                            <input type="text" ng-model="Post.DepartmentName" class="form-control" readonly="readonly" ng-click="SelectDepartment()" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">岗位名称</label>
+                        <div class="col-md-9 for">
+                            <select ng-options="item.DictionaryValue as item.DictionaryValue for item in PostCodes" ng-model="Post.PostName" ng-init="Post.PostName='主任'" class="form-control">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                   
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="SavePost()">
+                    <i class="fa fa-fw fa-save"></i>
+                    保存
+                </button>
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    <i class="fa fa-fw fa-close"></i>
+                    取消
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalUserPost" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel7" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel7">
+                    <label>员工岗位信息</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">岗位名</label>
+                        <div class="col-md-9 for">
+                            <input type="text" ng-model="UserPost.PostName" class="form-control"  ng-click="SelectPost()" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">岗位级别</label>
+                        <div class="col-md-9 for">
+                            <select ng-options="item.DictionaryValue as item.DictionaryName for item in PostLevels" ng-model="UserPost.PostLevel" class="form-control">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">用户名</label>
+                        <div class="col-md-9 for">
+                            <input type="text" ng-model="UserPost.UserName" class="form-control"  ng-click="SelectUser()" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="SaveUserPost()">
+                    <i class="fa fa-fw fa-save"></i>
+                    保存
+                </button>
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    <i class="fa fa-fw fa-close"></i>
+                    取消
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalSelectComapny" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel4" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel4">
+                    <label>选择医院/公司</label>
+                </h4>
+            </div>
+                <table class="table table-responsive table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>医院/公司名</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in Companys" >
+                            <td>{{x.CName}}</td>
+                            <td><button class="btn btn-default" ng-click="CheckCompany(x)">选择</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            <div class="modal-footer">
+                <div id="companyPager" class="pull-right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalSelectDepartment" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel5" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel5">
+                    <label>选择科室（部门）</label>
+                </h4>
+            </div>
+            <table class="table table-responsive table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>医院/公司名</th>
+                        <th>科室（部门）</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in Departments">
+                        <td>{{x.CompanyName}}</td>
+                        <td>{{x.DepartmentName}}</td>
+                        <td><button class="btn btn-default" ng-click="CheckDepartment(x)">选择</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal-footer">
+                <div id="departmentPager" class="pull-right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalSelectPost" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel7" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel7">
+                    <label>选择岗位</label>
+                </h4>
+            </div>
+            <table class="table table-responsive table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>医院（公司）</th>
+                        <th>科室（部门）</th>
+                        <th>岗位</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in Departments">
+                        <td>{{x.PostCode}}</td>
+                        <td>{{x.DepartmentName}}</td>
+                        <td>{{x.PostName}}</td>
+                        <td><button class="btn btn-default" ng-click="CheckPost(x)">选择</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal-footer">
+                <div id="postPager" class="pull-right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalSelectUser" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel9" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel9">
+                    <label>选择员工</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal" style="padding-bottom:1px;">
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" ng-model="SearchUserName"/>
+                        </div>
+                        <button type="button" class="btn btn-default col-md-3" ng-click="SearchUserCondition()">查询</button>
+                    </div>
+                </div>
+                <table class="table table-responsive table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in Departments">
+                            <td>{{x.LoginName}}</td>
+                            <td><button class="btn btn-default" ng-click="CheckUser(x)">选择</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div id="userPager" class="pull-right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>
+
+
+

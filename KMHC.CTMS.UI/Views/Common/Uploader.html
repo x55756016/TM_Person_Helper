@@ -1,0 +1,18 @@
+﻿<!--用来存放文件信息-->
+<div class="row">
+    <div>
+        <div class="col-md-3"><div id="picker">选择文件</div></div>
+        <div class="col-md-3">
+            <button class="btn btn-default" ng-click="StartUpload()">开始上传</button>
+        </div>
+    </div>
+    <ul class="list-group" ng-repeat="x in Files">
+        <li class="list-group-item">{{x.Name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">{{x.Msg}}</span><span class="badge" ng-click="RemoveFile($index)">删除</span></li>
+    </ul>
+    <div class="row">
+        <p class="panel-title text-info">已上传文件</p>
+    </div>
+    <ul class="list-group" ng-repeat="u in UpFiles">
+        <li class="list-group-item">{{u.FileName}}<span class="badge" ng-click="DelFile(u,$index)">删除</span></li>
+    </ul>
+</div>

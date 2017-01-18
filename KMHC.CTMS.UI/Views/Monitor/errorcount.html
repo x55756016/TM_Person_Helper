@@ -1,0 +1,68 @@
+﻿<style>
+    th, td {
+        vertical-align: middle !important;
+        text-align: center !important;
+        word-wrap: break-word;
+    }
+
+    .loading span {
+        text-align: center;
+    }
+</style>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            注册用户信息
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="table-layout:fixed;">
+                        <caption>
+                            <label class="col-md-2 col-lg-1 control-label " style="padding-top: 7px; margin-bottom: 0; text-align: right; ">编码/名称</label>
+                            <div class="col-md-3 col-lg-2">
+                                <input type="text" class="form-control" autocomplete="off" placeholder="编码或者名称" />
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-info" ng-click="Search()">查询</button>
+                            </div>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>错误明细</th>
+                                <th>请求服务地址</th>
+                                <th>服务名称</th>
+                                <th>端口</th>
+                                <th>出错帐号</th>
+                                <th>使用时间</th>
+                                <th>出错端</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in Data">
+                                <td>{{$index}}</td>
+                                <td>{{d.Message}}</td>
+                                <td>{{d.LocalPath}}</td>
+                                <td>{{d.ErrorName}}</td>
+                                <td>{{d.Port}}</td>
+                                <td>{{d.LoginName}}</td>
+                                <td>{{d.InputTime|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                                <td>{{d.Platform}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="pager" class="pull-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/Scripts/echarts.min.js"></script>
+
+<!--遮罩层-->
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>

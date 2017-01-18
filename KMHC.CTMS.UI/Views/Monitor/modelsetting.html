@@ -1,0 +1,126 @@
+﻿<style>
+    th,td{text-align:center;}
+    .opt_edit {
+        list-style: none;
+        width:155px;
+        margin:0 auto;
+    }
+
+        .opt_edit > li + li:before {
+            content: "|";
+            color: #808080;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .opt_edit > li {
+            float: left;
+        }
+
+            .opt_edit > li > a {
+                text-decoration: none;
+                cursor: pointer;
+            }
+</style>
+<div class="container-fluid">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <i class="fa fa-fw fa-search-plus fa-lg"></i>
+            <strong data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                查询条件
+                <i class="fa fa-angle-down fa-fw pull-right"></i>
+            </strong>
+        </div>
+        <div class="panel-collapse collapse in" id="collapseExample">
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-lg-1 col-md-2 control-label ">编码/名称</label>
+                        <div class="col-lg-3 col-md-6">
+                            <input type="text" class="form-control" ng-model="Keyword" />
+                        </div>
+                        <div class="col-lg-1 col-md-2">
+                            <button type="button" class="btn btn-info btn-block form-control"
+                                    ng-model="TestButton" ng-click="Search()">
+                                <i class="fa fa-fw fa-search">
+
+                                </i> 查询
+                            </button>
+                        </div>
+                        <div class="col-lg-1 col-md-2">
+                            <button class="btn btn-info btn-block  form-control" type="Reset" ng-click="Reset()">
+                                <i class="fa fa-fw fa-refresh"></i> 重置
+                            </button>
+                        </div>
+                        <div class="col-lg-1 col-md-2">
+                            <button class="btn btn-info btn-block  form-control" type="Reset" ng-click="AddNew()">
+                                <i class="fa fa-fw fa-search-plus"></i> 新增
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <i class="fa fa-fw fa-binoculars fa-lg"></i>
+            <strong data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                查询结果
+            </strong>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <tbody>
+                    <tr>
+                        <th>序号</th>
+                        <th>模块名称</th>
+                        <th>模块编码</th>
+                        <th>备注</th>
+                        <th>修改时间</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr ng-repeat="x in Data">
+                        <td>{{$index}}</td>
+                        <td ng-if="!x.IsEdit && !x.IsNew">{{x.ModelName}}</td>
+                        <td ng-if="x.IsEdit && !x.IsNew"><input type="text" class="form-control" ng-model="x.ModelName" autocomplete="off" placeholder="模块名称" /></td>
+                        <td ng-if="!x.IsEdit && x.IsNew"><input type="text" class="form-control" ng-model="x.ModelName" autocomplete="off" placeholder="模块名称" /></td>
+                        <td ng-if="!x.IsEdit && !x.IsNew">{{x.ModelCode}}</td>
+                        <td ng-if="x.IsEdit && !x.IsNew"><input type="text" class="form-control" ng-model="x.ModelCode" autocomplete="off" placeholder="模块编码" /></td>
+                        <td ng-if="!x.IsEdit && x.IsNew"><input type="text" class="form-control" ng-model="x.ModelCode" autocomplete="off" placeholder="模块编码" /></td>
+                        <td ng-if="!x.IsEdit && !x.IsNew">{{x.Remark}}</td>
+                        <td ng-if="x.IsEdit && !x.IsNew"><input type="text" class="form-control" ng-model="x.Remark" autocomplete="off" placeholder="备注" /></td>
+                        <td ng-if="!x.IsEdit && x.IsNew"><input type="text" class="form-control" ng-model="x.Remark" autocomplete="off" placeholder="备注" /></td>
+                        <td>{{x.LastModifyDateTime|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td ng-if="!x.IsEdit && !x.IsNew">
+                            <ol class="opt_edit">
+                                <li><a ng-click="Edit(x)">编辑</a></li>
+                                <li><a ng-click="Delete(x)">删除</a></li>
+                            </ol>
+                        </td>
+                        <td ng-if="x.IsEdit && !x.IsNew">
+                            <ol class="opt_edit">
+                                <li><a ng-click="CancelEdit(x)">取消</a></li>
+                                <li><a ng-click="SaveEdit(x)">保存</a></li>
+                            </ol>
+                        </td>
+                        <td ng-if="!x.IsEdit && x.IsNew">
+                            <ol class="opt_edit">
+                                <li><a ng-click="CancelEdit(x)">取消</a></li>
+                                <li><a ng-click="SaveEdit(x)">保存</a></li>
+                            </ol>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="pager" class="pull-right"></div>
+    </div>
+</div>
+
+<!--遮罩层-->
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>

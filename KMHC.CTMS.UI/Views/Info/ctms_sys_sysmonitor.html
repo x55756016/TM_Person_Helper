@@ -1,0 +1,80 @@
+﻿
+<!--详情页-->
+<div class="container-fluid">
+	<div class="panel panel-info">
+	    <div class="panel-heading">
+	        <strong><i class="fa fa-fw fa-medkit fa-lg"></i>ctms_sys_sysmonitor</strong>
+	    </div>
+	    <div class="panel-body">
+	        <form class="form-horizontal" name="InfoForm">
+	        		        		           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtUSERID">  用户id</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtUSERID" ng-model="Info.USERID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtUSERNAME">  用户姓名</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtUSERNAME" ng-model="Info.USERNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtOPRATESOURCE">  0 web端
+            1 app ios端
+            2 app andriod端</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtOPRATESOURCE" ng-model="Info.OPRATESOURCE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtMODELCODE">  模块编码</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtMODELCODE" ng-model="Info.MODELCODE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtMODELNAME">  模块名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtMODELNAME" ng-model="Info.MODELNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtOPERATETYPE">  操作类型</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtOPERATETYPE" ng-model="Info.OPERATETYPE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtOPERATENAME">  操作类型名</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtOPERATENAME" ng-model="Info.OPERATENAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtOPERATETIME">  操作时间</label>                
+		                			   					<div class="col-md-5">
+		   						 <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-date-orientation="bottom" datepicker>
+		                            <input id="txt_OPERATETIME" class="form-control" size="10" type="text" value="" required ng-model="Info.OPERATETIME" />
+		                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                        </div>
+		   					</div>                     
+		   							            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtREMARK">  备注</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtREMARK" ng-model="Info.REMARK"  />
+		                    </div>
+		                    		            </div>
+		            	           		        		           		        		           		        		           		        		           		            <div class="form-group">
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="btn btn-info btn-block" ng-click="GoBack()"><i class="fa fa-fw fa-reply-all"></i>返回</button>
+	                </div>
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="col-md-2 btn btn-info btn-block" ng-disabled="InfoForm.$invalid" ng-click="Save()"><i class="fa fa-fw fa-save"></i>确定</button>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+    </div>
+</div>

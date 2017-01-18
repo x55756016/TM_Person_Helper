@@ -1,0 +1,80 @@
+﻿<style>
+    th, td {
+        text-align: center;
+    }
+
+    .opt_edit {
+        list-style: none;
+        width: 90px;
+        margin: 0 auto;
+    }
+
+        .opt_edit > li + li:before {
+            content: "|";
+            color: #808080;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .opt_edit > li {
+            float: left;
+        }
+
+            .opt_edit > li > a {
+                text-decoration: none;
+                cursor: pointer;
+            }
+</style>
+<div class="container-fluid">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <i class="fa fa-fw fa-search-plus fa-lg"></i>
+            <strong data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                查询条件
+                <i class="fa fa-angle-down fa-fw pull-right"></i>
+            </strong>
+        </div>
+        <div class="panel-collapse collapse in" id="collapseExample">
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-1 control-label ">IP地址：</label>
+                        <div class="col-md-2">
+                            <select class="form-control" ng-model="CurrentIP" ng-options="item.IPAddress as item.IPAddress for item in ServerList" ng-change="IPChange(CurrentIP)"></select>
+                        </div>
+                        <label class="col-md-1 control-label ">服务器名称：</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" ng-model="ServerName" ng-readonly="true" />
+                        </div>
+
+                        <label class="col-md-2 col-lg-1 control-label " style="padding-top: 7px; margin-bottom: 0; text-align: right; ">日期</label>
+                        <div class="col-md-3 col-lg-2">
+                            <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" datepicker>
+                                <input id="txt_Date" class="form-control" size="16" type="text" value="" ng-model="Date" placeholder="选择日期" />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-1 col-md-2">
+                            <button type="button" class="btn btn-info btn-block form-control"
+                                    ng-model="TestButton" ng-click="Search()">
+                                <i class="fa fa-fw fa-search">
+
+                                </i> 查询
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main" class="col-lg-12" style="height:700px;"></div>
+    <script type="text/javascript" src="/Scripts/echarts.min.js"></script>
+</div>
+
+<!--遮罩层-->
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>

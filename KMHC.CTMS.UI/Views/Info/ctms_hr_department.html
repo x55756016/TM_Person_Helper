@@ -1,0 +1,81 @@
+﻿
+<!--详情页-->
+<div class="container-fluid">
+	<div class="panel panel-info">
+	    <div class="panel-heading">
+	        <strong><i class="fa fa-fw fa-medkit fa-lg"></i>ctms_hr_department</strong>
+	    </div>
+	    <div class="panel-body">
+	        <form class="form-horizontal" name="InfoForm">
+	        		        		           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtDEPARTMENTCODE">  部门编号</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtDEPARTMENTCODE" ng-model="Info.DEPARTMENTCODE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtDEPARTMENTNAME">  部门名称</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtDEPARTMENTNAME" ng-model="Info.DEPARTMENTNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtDEPARTMENTLEVEL">  部门级别</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtDEPARTMENTLEVEL" ng-model="Info.DEPARTMENTLEVEL"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCOMPANYID">  公司ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCOMPANYID" ng-model="Info.COMPANYID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtFATHERTYPE">  上级机构类型</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtFATHERTYPE" ng-model="Info.FATHERTYPE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtFATHERID">  上级机构ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtFATHERID" ng-model="Info.FATHERID"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtDEPARTMENTBOSSHEAD">  部门负责人ID</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtDEPARTMENTBOSSHEAD" ng-model="Info.DEPARTMENTBOSSHEAD"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtDEPARTMENTHEADNAME">  部门负责人姓名</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtDEPARTMENTHEADNAME" ng-model="Info.DEPARTMENTHEADNAME"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtDEPARTMENTFUNCTION">  部门职责</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtDEPARTMENTFUNCTION" ng-model="Info.DEPARTMENTFUNCTION"  />
+		                    </div>
+		                    		            </div>
+		            	           		        			            <div class="form-group">
+		                <label class="col-md-1 control-label" for="txtCHECKSTATE">  审核状态</label>                
+		                			                	<div class="col-md-5">
+		                    	<input type="text" class="form-control" id="txtCHECKSTATE" ng-model="Info.CHECKSTATE"  />
+		                    </div>
+		                    		            </div>
+		            	           		        		           		        		           		        		           		        		           		        		           		        		           		        		           		        		           		        		           		            <div class="form-group">
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="btn btn-info btn-block" ng-click="GoBack()"><i class="fa fa-fw fa-reply-all"></i>返回</button>
+	                </div>
+	                <div class="col-md-2 col-md-offset-1">
+	                    <button type="button" class="col-md-2 btn btn-info btn-block" ng-disabled="InfoForm.$invalid" ng-click="Save()"><i class="fa fa-fw fa-save"></i>确定</button>
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+    </div>
+</div>

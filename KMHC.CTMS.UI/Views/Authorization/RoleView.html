@@ -1,0 +1,91 @@
+﻿<div class="container-fluid">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <strong><i class="fa fa-fw fa-user fa-lg"></i>角色权限查看</strong>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="InfoForm">
+                <div class="form-group">
+                    <label class="col-md-2 col-lg-1 control-label" for="txtRoleName">角色名称</label>
+                    <div class="col-md-3 col-lg-2">
+                        <input type="text" class="form-control disabled" value="{{Info.RoleName}}" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 col-lg-1   control-label" for="txtRoleName">功能点</label>
+                    <div class="col-md-3 col-lg-2">
+                        <input type="text" class="form-control" id="txtContent" ng-model="Keyword">
+                    </div>
+                    <div class="col-md-2 col-lg-1 ">
+                        <button type="button" class="btn btn-info" ng-click="Search()">查询</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 col-lg-1  control-label" for="txtContent">角色权限设置</label>
+                    <div class="col-md-10 col-lg-11  table-responsive" style="height:600px;">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>菜单功能</th>
+                                    <th ng-repeat="x in ExtFuns[0].Permissions" style="min-width:200px;">{{x.PermissionName}}</th>
+                                </tr>
+                                <tr ng-repeat="x in ExtFuns">
+                                    <td>{{x.FunctionName}}</td>
+                                    <td ng-repeat="c in x.Permissions">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" ng-model="c.IsDeleted">
+                                            授权
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" ng-model="c.Tool">
+                                            数据范围
+                                        </label>
+                                        <div ng-show="c.Tool==true" class="pager table-responsive">
+                                            <table class="table table-bordered table-striped  table-hover" style="width:500px;">
+                                                <thead>
+                                                    <tr><th>关系</th><th>字段</th><th>操作</th><th>值</th></tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="t in c.DataRange">
+                                                        <td class="wrapspace">
+                                                            <select class="form-control" ng-model="t.relationship" style="min-width:80px;">
+                                                                <option value="and">and</option>
+                                                                <option value="or">or</option>
+                                                            </select>
+                                                        </td>
+                                                        <td class="wrapspace">
+                                                            <input type="text" class="form-control" ng-model="t.name" disabled="disabled" style="min-width:150px;" />
+                                                        </td>
+                                                        <td class="wrapspace">
+                                                            <select class="form-control" ng-model="t.operation" style="min-width:70px;">
+                                                                <option value=">">></option>
+                                                                <option value="=">=</option>
+                                                                <option value="<"><</option>
+                                                                <option value=">=">>=</option>
+                                                                <option value="<="><=</option>
+                                                                <option value="like">like</option>
+                                                            </select>
+                                                        </td>
+                                                        <td class="wrapspace">
+                                                            <input type="text" class="form-control" ng-model="t.value" style="min-width:150px;" />
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 col-lg-1  col-md-offset-2 col-lg-offset-1">
+                        <button type="button" class="btn btn-info  btn-block" ng-click="GoBack()"><i class="fa fa-fw fa-reply-all"></i> 返回</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

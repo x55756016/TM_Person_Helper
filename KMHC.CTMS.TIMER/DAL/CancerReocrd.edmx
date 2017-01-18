@@ -1,0 +1,702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTMS_MYPRODUCT">
+          <Key>
+            <PropertyRef Name="MYPRODUCTID" />
+          </Key>
+          <Property Name="MYPRODUCTID" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERID" Type="varchar2" MaxLength="50" />
+          <Property Name="LOGINNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="ORDERID" Type="varchar2" MaxLength="50" />
+          <Property Name="PRODUCTCODE" Type="varchar2" MaxLength="50" />
+          <Property Name="PRODUCTID" Type="varchar2" MaxLength="50" />
+          <Property Name="PRODUCTNAME" Type="varchar2" MaxLength="200" />
+          <Property Name="PRODUCTNUM" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="STARTDATE" Type="date" />
+          <Property Name="ENDDATE" Type="date" />
+          <Property Name="ISUSED" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="USEDDATE" Type="date" />
+          <Property Name="CREATEUSERID" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATEUSERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATEDATETIME" Type="date" />
+          <Property Name="EDITUSERID" Type="varchar2" MaxLength="50" />
+          <Property Name="EDITUSERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="EDITDATETIME" Type="date" />
+          <Property Name="OWNERID" Type="varchar2" MaxLength="50" />
+          <Property Name="OWNERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="ISDELETED" Type="number" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CTMS_OD_ORDERS">
+          <Key>
+            <PropertyRef Name="ORDERID" />
+          </Key>
+          <Property Name="ORDERID" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="ORDERCODE" Type="varchar2" MaxLength="50" />
+          <Property Name="USERID" Type="varchar2" MaxLength="50" />
+          <Property Name="ORDERTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="PRODUCTCODE" Type="varchar2" MaxLength="50" />
+          <Property Name="PRODUCTID" Type="varchar2" MaxLength="50" />
+          <Property Name="PRODUCTNAME" Type="varchar2" MaxLength="200" />
+          <Property Name="CHANNELTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="CHANNELORDERID" Type="varchar2" MaxLength="50" />
+          <Property Name="PAYTIME" Type="date" />
+          <Property Name="ORDERSTATUS" Type="varchar2" MaxLength="50" />
+          <Property Name="EXPRESSID" Type="varchar2" MaxLength="50" />
+          <Property Name="RECEIVEADDR" Type="varchar2" MaxLength="500" />
+          <Property Name="CREATEUSERID" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATEUSERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATEDATETIME" Type="date" />
+          <Property Name="EDITUSERID" Type="varchar2" MaxLength="50" />
+          <Property Name="EDITUSERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="EDITDATETIME" Type="date" />
+          <Property Name="OWNERID" Type="varchar2" MaxLength="50" />
+          <Property Name="OWNERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="ISDELETED" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="MOBILENUMBER" Type="varchar2" MaxLength="50" />
+          <Property Name="KMORDERNUMBER" Type="varchar2" MaxLength="100" />
+          <Property Name="NEEDDAIJIAN" Type="number" Precision="1" Scale="0" />
+          <Property Name="NEEDINVOICE" Type="number" Precision="1" Scale="0" />
+          <Property Name="INVOICEREMARK" Type="varchar2" MaxLength="500" />
+          <Property Name="OWNERDOCID" Type="varchar2" MaxLength="50" />
+          <Property Name="BALANCESTATUS" Type="varchar2" MaxLength="50" />
+          <Property Name="ORDERENDDATE" Type="date" />
+          <Property Name="PRODUCTINSTANCEID" Type="varchar2" MaxLength="50" />
+          <Property Name="TOTALFEE" Type="number" Precision="38" Scale="2" />
+          <Property Name="LOGISTICSFEE" Type="number" Precision="38" Scale="2" />
+          <Property Name="DAIJIANFEE" Type="number" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="CTMS_SUP_REQUESTRECORD">
+          <Key>
+            <PropertyRef Name="REQUESTQUEUEID" />
+          </Key>
+          <Property Name="REQUESTQUEUEID" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="MYPRODUCTID" Type="varchar2" MaxLength="50" />
+          <Property Name="USERID" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="DOCTORID" Type="varchar2" MaxLength="50" />
+          <Property Name="REGID" Type="varchar2" MaxLength="50" />
+          <Property Name="QUEUEINDEX" Type="number" Precision="9" Scale="0" />
+          <Property Name="STARTDATE" Type="date" />
+          <Property Name="REQUESSTATUE" Type="varchar2" MaxLength="50" />
+          <Property Name="REQUESTTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="ENDDATE" Type="date" />
+          <Property Name="CREATEUSERID" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATEUSERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATEDATETIME" Type="date" />
+          <Property Name="EDITUSERID" Type="varchar2" MaxLength="50" />
+          <Property Name="EDITUSERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="EDITDATETIME" Type="date" />
+          <Property Name="OWNERID" Type="varchar2" MaxLength="50" />
+          <Property Name="OWNERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="ISDELETED" Type="number" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CTMS_SYS_USERINFO">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="LOGINNAME" Type="varchar2" MaxLength="100" />
+          <Property Name="LOGINPWD" Type="varchar2" MaxLength="100" />
+          <Property Name="MOBILEPHONE" Type="varchar2" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="100" />
+          <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+          <Property Name="CREATEDATETIME" Type="date" />
+          <Property Name="EDITUSERID" Type="nvarchar2" MaxLength="100" />
+          <Property Name="EDITDATETIME" Type="date" />
+          <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+          <Property Name="ISDELETED" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="CREATEUSERNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="EDITUSERNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="OWNERNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="USERTYPE" Type="number" Precision="38" Scale="0" />
+          <Property Name="USERSTATUS" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="ACCOUNT" Type="number" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MEMBERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="MEMBERSTARTDATE" Type="date" />
+          <Property Name="MEMBERENDDATE" Type="date" />
+          <Property Name="USERNAME" Type="varchar2" MaxLength="100" />
+          <Property Name="ICONPATH" Type="varchar2" MaxLength="200" />
+          <Property Name="OWNERPOSTID" Type="varchar2" MaxLength="50" />
+          <Property Name="OWNERDEPARTMENTID" Type="varchar2" MaxLength="50" />
+          <Property Name="OWNERCOMPANYID" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CTMS_TK_TIMEDTASK">
+          <Key>
+            <PropertyRef Name="TIMEDTASKID" />
+          </Key>
+          <Property Name="TIMEDTASKID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="TIMEDTASKDEFINEID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="TRIGGERTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="STARTDATE" Type="date" />
+          <Property Name="STARTTIME" Type="varchar2" MaxLength="50" />
+          <Property Name="ENDDATE" Type="date" />
+          <Property Name="ENDTIME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="RECEIVEUSER" Type="varchar2" MaxLength="50" />
+          <Property Name="RECEIVEROLE" Type="varchar2" MaxLength="50" />
+          <Property Name="MESSAGEBODY" Type="varchar2" MaxLength="2000" />
+          <Property Name="MODELCODE" Type="varchar2" MaxLength="50" />
+          <Property Name="MSGLINKURL" Type="varchar2" MaxLength="2000" />
+          <Property Name="PROCESSWCFURL" Type="varchar2" MaxLength="2000" />
+          <Property Name="PROCESSFUNCNAME" Type="varchar2" MaxLength="400" />
+          <Property Name="PROCESSFUNCPAMETER" Type="varchar2" MaxLength="2000" />
+          <Property Name="TASKSTATUS" Type="varchar2" MaxLength="50" />
+          <Property Name="EXECUTTIME" Type="date" />
+          <Property Name="CREATEDATE" Type="date" />
+          <Property Name="CREATETIME" Type="varchar2" MaxLength="50" />
+          <Property Name="UPDATEDATE" Type="date" />
+          <Property Name="UPDATETIME" Type="varchar2" MaxLength="50" />
+          <Property Name="FUNCTIONMARK" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CTMS_TK_TIMEDTASKDEFINE">
+          <Key>
+            <PropertyRef Name="TIMEDTASKDEFINEID" />
+          </Key>
+          <Property Name="TIMEDTASKDEFINEID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="TRIGGERTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="TIMEDTYPE" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGDAY" Type="number" Precision="38" Scale="0" />
+          <Property Name="DAYORWORKDAY" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGWEEKS" Type="number" Precision="38" Scale="0" />
+          <Property Name="DAYOFWEEK" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGMONTH" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGMONTHDAY" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGMONTHWEEK" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGMONTHWEEKDAY" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGYEARMONTH" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGYEARDAY" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGYEARWEEK" Type="number" Precision="38" Scale="0" />
+          <Property Name="HOWLONGYEARWEEKDAY" Type="number" Precision="38" Scale="0" />
+          <Property Name="STARTDATE" Type="date" Nullable="false" />
+          <Property Name="STARTTIME" Type="varchar2" MaxLength="50" />
+          <Property Name="NEVEREXPIRE" Type="number" Precision="38" Scale="0" />
+          <Property Name="ENDDATE" Type="date" Nullable="false" />
+          <Property Name="ENDTIME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="RECEIVEUSER" Type="varchar2" MaxLength="50" />
+          <Property Name="RECEIVEROLE" Type="varchar2" MaxLength="50" />
+          <Property Name="MESSAGEBODY" Type="varchar2" MaxLength="2000" />
+          <Property Name="MODELCODE" Type="varchar2" MaxLength="50" />
+          <Property Name="MSGLINKURL" Type="varchar2" MaxLength="2000" />
+          <Property Name="PROCESSWCFURL" Type="varchar2" MaxLength="2000" />
+          <Property Name="PROCESSFUNCNAME" Type="varchar2" MaxLength="400" />
+          <Property Name="PROCESSFUNCPAMETER" Type="varchar2" MaxLength="2000" />
+          <Property Name="DATASTATUS" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATEDATE" Type="date" />
+          <Property Name="CREATETIME" Type="varchar2" MaxLength="50" />
+          <Property Name="UPDATEDATE" Type="date" />
+          <Property Name="UPDATETIME" Type="varchar2" MaxLength="50" />
+          <Property Name="FUNCTIONMARK" Type="varchar2" MaxLength="50" />
+          <Property Name="APPLYID" Type="varchar2" MaxLength="50" />
+          <Property Name="ISDELETED" Type="number" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CTMS_USEREVENT">
+          <Key>
+            <PropertyRef Name="EVENTID" />
+          </Key>
+          <Property Name="EVENTID" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERAPPLYID" Type="varchar2" MaxLength="50" />
+          <Property Name="ACTIONTYPE" Type="nvarchar2" MaxLength="20" />
+          <Property Name="ACTIONINFO" Type="nvarchar2" MaxLength="200" />
+          <Property Name="RECEIPTTIME" Type="date" />
+          <Property Name="ENDTIME" Type="date" />
+          <Property Name="ACTIONSTATUS" Type="varchar2" MaxLength="1" />
+          <Property Name="FROMUSER" Type="varchar2" MaxLength="50" />
+          <Property Name="TOUSER" Type="varchar2" MaxLength="50" />
+          <Property Name="TOUSERTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATETIME" Type="date" />
+          <Property Name="MODELTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="MODELID" Type="varchar2" MaxLength="50" />
+          <Property Name="REMARKS" Type="nvarchar2" MaxLength="2000" />
+          <Property Name="LINKURL" Type="varchar2" MaxLength="100" />
+          <Property Name="ISDELETED" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="CREATEUSERID" Type="varchar2" MaxLength="50" />
+          <Property Name="EDITUSERID" Type="varchar2" MaxLength="50" />
+          <Property Name="EDITDATETIME" Type="date" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="CTMS_MYPRODUCT" EntityType="Self.CTMS_MYPRODUCT" Schema="CIMSTEST" store:Type="Tables" />
+          <EntitySet Name="CTMS_OD_ORDERS" EntityType="Self.CTMS_OD_ORDERS" Schema="CIMSTEST" store:Type="Tables" />
+          <EntitySet Name="CTMS_SUP_REQUESTRECORD" EntityType="Self.CTMS_SUP_REQUESTRECORD" Schema="CIMSTEST" store:Type="Tables" />
+          <EntitySet Name="CTMS_SYS_USERINFO" EntityType="Self.CTMS_SYS_USERINFO" Schema="CIMSTEST" store:Type="Tables" />
+          <EntitySet Name="CTMS_TK_TIMEDTASK" EntityType="Self.CTMS_TK_TIMEDTASK" Schema="CIMSTEST" store:Type="Tables" />
+          <EntitySet Name="CTMS_TK_TIMEDTASKDEFINE" EntityType="Self.CTMS_TK_TIMEDTASKDEFINE" Schema="CIMSTEST" store:Type="Tables" />
+          <EntitySet Name="CTMS_USEREVENT" EntityType="Self.CTMS_USEREVENT" Schema="CIMSTEST" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CTMS_MYPRODUCT" EntityType="Model.CTMS_MYPRODUCT" />
+          <EntitySet Name="CTMS_OD_ORDERS" EntityType="Model.CTMS_OD_ORDERS" />
+          <EntitySet Name="CTMS_SUP_REQUESTRECORD" EntityType="Model.CTMS_SUP_REQUESTRECORD" />
+          <EntitySet Name="CTMS_SYS_USERINFO" EntityType="Model.CTMS_SYS_USERINFO" />
+          <EntitySet Name="CTMS_TK_TIMEDTASK" EntityType="Model.CTMS_TK_TIMEDTASK" />
+          <EntitySet Name="CTMS_TK_TIMEDTASKDEFINE" EntityType="Model.CTMS_TK_TIMEDTASKDEFINE" />
+          <EntitySet Name="CTMS_USEREVENT" EntityType="Model.CTMS_USEREVENT" />
+        </EntityContainer>
+        <EntityType Name="CTMS_MYPRODUCT">
+          <Key>
+            <PropertyRef Name="MYPRODUCTID" />
+          </Key>
+          <Property Name="MYPRODUCTID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOGINNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTNUM" Type="Int32" Nullable="false" />
+          <Property Name="STARTDATE" Type="DateTime" />
+          <Property Name="ENDDATE" Type="DateTime" />
+          <Property Name="ISUSED" Type="Boolean" Nullable="false" />
+          <Property Name="USEDDATE" Type="DateTime" />
+          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDATETIME" Type="DateTime" />
+          <Property Name="EDITUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EDITUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EDITDATETIME" Type="DateTime" />
+          <Property Name="OWNERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISDELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CTMS_OD_ORDERS">
+          <Key>
+            <PropertyRef Name="ORDERID" />
+          </Key>
+          <Property Name="ORDERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDERCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDERTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CHANNELTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CHANNELORDERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAYTIME" Type="DateTime" />
+          <Property Name="ORDERSTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXPRESSID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIVEADDR" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDATETIME" Type="DateTime" />
+          <Property Name="EDITUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EDITUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EDITDATETIME" Type="DateTime" />
+          <Property Name="OWNERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISDELETED" Type="Boolean" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILENUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KMORDERNUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NEEDDAIJIAN" Type="Boolean" />
+          <Property Name="NEEDINVOICE" Type="Boolean" />
+          <Property Name="INVOICEREMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERDOCID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BALANCESTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDERENDDATE" Type="DateTime" />
+          <Property Name="PRODUCTINSTANCEID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOTALFEE" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="LOGISTICSFEE" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="DAIJIANFEE" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="CTMS_SUP_REQUESTRECORD">
+          <Key>
+            <PropertyRef Name="REQUESTQUEUEID" />
+          </Key>
+          <Property Name="REQUESTQUEUEID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MYPRODUCTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOCTORID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REGID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QUEUEINDEX" Type="Int32" />
+          <Property Name="STARTDATE" Type="DateTime" />
+          <Property Name="REQUESSTATUE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REQUESTTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ENDDATE" Type="DateTime" />
+          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDATETIME" Type="DateTime" />
+          <Property Name="EDITUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EDITUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EDITDATETIME" Type="DateTime" />
+          <Property Name="OWNERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISDELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CTMS_SYS_USERINFO">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LOGINNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LOGINPWD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILEPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEUSERID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CREATEDATETIME" Type="DateTime" />
+          <Property Name="EDITUSERID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EDITDATETIME" Type="DateTime" />
+          <Property Name="OWNERID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ISDELETED" Type="Boolean" Nullable="false" />
+          <Property Name="CREATEUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EDITUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OWNERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERTYPE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="USERSTATUS" Type="Int32" Nullable="false" />
+          <Property Name="ACCOUNT" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="MEMBERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MEMBERSTARTDATE" Type="DateTime" />
+          <Property Name="MEMBERENDDATE" Type="DateTime" />
+          <Property Name="USERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ICONPATH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERPOSTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERCOMPANYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CTMS_TK_TIMEDTASK">
+          <Key>
+            <PropertyRef Name="TIMEDTASKID" />
+          </Key>
+          <Property Name="TIMEDTASKID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIMEDTASKDEFINEID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRIGGERTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STARTDATE" Type="DateTime" />
+          <Property Name="STARTTIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ENDDATE" Type="DateTime" />
+          <Property Name="ENDTIME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RECEIVEUSER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIVEROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MESSAGEBODY" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="MODELCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MSGLINKURL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="PROCESSWCFURL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="PROCESSFUNCNAME" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="PROCESSFUNCPAMETER" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="TASKSTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXECUTTIME" Type="DateTime" />
+          <Property Name="CREATEDATE" Type="DateTime" />
+          <Property Name="CREATETIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDATE" Type="DateTime" />
+          <Property Name="UPDATETIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FUNCTIONMARK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CTMS_TK_TIMEDTASKDEFINE">
+          <Key>
+            <PropertyRef Name="TIMEDTASKDEFINEID" />
+          </Key>
+          <Property Name="TIMEDTASKDEFINEID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRIGGERTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIMEDTYPE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGDAY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DAYORWORKDAY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGWEEKS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DAYOFWEEK" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGMONTH" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGMONTHDAY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGMONTHWEEK" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGMONTHWEEKDAY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGYEARMONTH" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGYEARDAY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGYEARWEEK" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HOWLONGYEARWEEKDAY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="STARTDATE" Type="DateTime" Nullable="false" />
+          <Property Name="STARTTIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NEVEREXPIRE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ENDDATE" Type="DateTime" Nullable="false" />
+          <Property Name="ENDTIME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RECEIVEUSER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIVEROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MESSAGEBODY" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="MODELCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MSGLINKURL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="PROCESSWCFURL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="PROCESSFUNCNAME" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="PROCESSFUNCPAMETER" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DATASTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDATE" Type="DateTime" />
+          <Property Name="CREATETIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDATE" Type="DateTime" />
+          <Property Name="UPDATETIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FUNCTIONMARK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APPLYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISDELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CTMS_USEREVENT">
+          <Key>
+            <PropertyRef Name="EVENTID" />
+          </Key>
+          <Property Name="EVENTID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USERAPPLYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIONTYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ACTIONINFO" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RECEIPTTIME" Type="DateTime" />
+          <Property Name="ENDTIME" Type="DateTime" />
+          <Property Name="ACTIONSTATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FROMUSER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOUSER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOUSERTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" />
+          <Property Name="MODELTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODELID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="LINKURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ISDELETED" Type="Boolean" Nullable="false" />
+          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EDITUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EDITDATETIME" Type="DateTime" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="CTMS_MYPRODUCT">
+            <EntityTypeMapping TypeName="Model.CTMS_MYPRODUCT">
+              <MappingFragment StoreEntitySet="CTMS_MYPRODUCT">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+                <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+                <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+                <ScalarProperty Name="EDITDATETIME" ColumnName="EDITDATETIME" />
+                <ScalarProperty Name="EDITUSERNAME" ColumnName="EDITUSERNAME" />
+                <ScalarProperty Name="EDITUSERID" ColumnName="EDITUSERID" />
+                <ScalarProperty Name="CREATEDATETIME" ColumnName="CREATEDATETIME" />
+                <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+                <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+                <ScalarProperty Name="USEDDATE" ColumnName="USEDDATE" />
+                <ScalarProperty Name="ISUSED" ColumnName="ISUSED" />
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="PRODUCTNUM" ColumnName="PRODUCTNUM" />
+                <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="PRODUCTCODE" ColumnName="PRODUCTCODE" />
+                <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+                <ScalarProperty Name="LOGINNAME" ColumnName="LOGINNAME" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="MYPRODUCTID" ColumnName="MYPRODUCTID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTMS_OD_ORDERS">
+            <EntityTypeMapping TypeName="Model.CTMS_OD_ORDERS">
+              <MappingFragment StoreEntitySet="CTMS_OD_ORDERS">
+                <ScalarProperty Name="DAIJIANFEE" ColumnName="DAIJIANFEE" />
+                <ScalarProperty Name="LOGISTICSFEE" ColumnName="LOGISTICSFEE" />
+                <ScalarProperty Name="TOTALFEE" ColumnName="TOTALFEE" />
+                <ScalarProperty Name="PRODUCTINSTANCEID" ColumnName="PRODUCTINSTANCEID" />
+                <ScalarProperty Name="ORDERENDDATE" ColumnName="ORDERENDDATE" />
+                <ScalarProperty Name="BALANCESTATUS" ColumnName="BALANCESTATUS" />
+                <ScalarProperty Name="OWNERDOCID" ColumnName="OWNERDOCID" />
+                <ScalarProperty Name="INVOICEREMARK" ColumnName="INVOICEREMARK" />
+                <ScalarProperty Name="NEEDINVOICE" ColumnName="NEEDINVOICE" />
+                <ScalarProperty Name="NEEDDAIJIAN" ColumnName="NEEDDAIJIAN" />
+                <ScalarProperty Name="KMORDERNUMBER" ColumnName="KMORDERNUMBER" />
+                <ScalarProperty Name="MOBILENUMBER" ColumnName="MOBILENUMBER" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+                <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+                <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+                <ScalarProperty Name="EDITDATETIME" ColumnName="EDITDATETIME" />
+                <ScalarProperty Name="EDITUSERNAME" ColumnName="EDITUSERNAME" />
+                <ScalarProperty Name="EDITUSERID" ColumnName="EDITUSERID" />
+                <ScalarProperty Name="CREATEDATETIME" ColumnName="CREATEDATETIME" />
+                <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+                <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+                <ScalarProperty Name="RECEIVEADDR" ColumnName="RECEIVEADDR" />
+                <ScalarProperty Name="EXPRESSID" ColumnName="EXPRESSID" />
+                <ScalarProperty Name="ORDERSTATUS" ColumnName="ORDERSTATUS" />
+                <ScalarProperty Name="PAYTIME" ColumnName="PAYTIME" />
+                <ScalarProperty Name="CHANNELORDERID" ColumnName="CHANNELORDERID" />
+                <ScalarProperty Name="CHANNELTYPE" ColumnName="CHANNELTYPE" />
+                <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="PRODUCTCODE" ColumnName="PRODUCTCODE" />
+                <ScalarProperty Name="ORDERTYPE" ColumnName="ORDERTYPE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="ORDERCODE" ColumnName="ORDERCODE" />
+                <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTMS_SUP_REQUESTRECORD">
+            <EntityTypeMapping TypeName="Model.CTMS_SUP_REQUESTRECORD">
+              <MappingFragment StoreEntitySet="CTMS_SUP_REQUESTRECORD">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+                <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+                <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+                <ScalarProperty Name="EDITDATETIME" ColumnName="EDITDATETIME" />
+                <ScalarProperty Name="EDITUSERNAME" ColumnName="EDITUSERNAME" />
+                <ScalarProperty Name="EDITUSERID" ColumnName="EDITUSERID" />
+                <ScalarProperty Name="CREATEDATETIME" ColumnName="CREATEDATETIME" />
+                <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+                <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+                <ScalarProperty Name="REQUESSTATUE" ColumnName="REQUESSTATUE" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="QUEUEINDEX" ColumnName="QUEUEINDEX" />
+                <ScalarProperty Name="REGID" ColumnName="REGID" />
+                <ScalarProperty Name="DOCTORID" ColumnName="DOCTORID" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="MYPRODUCTID" ColumnName="MYPRODUCTID" />
+                <ScalarProperty Name="REQUESTQUEUEID" ColumnName="REQUESTQUEUEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTMS_SYS_USERINFO">
+            <EntityTypeMapping TypeName="Model.CTMS_SYS_USERINFO">
+              <MappingFragment StoreEntitySet="CTMS_SYS_USERINFO">
+                <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+                <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+                <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+                <ScalarProperty Name="ICONPATH" ColumnName="ICONPATH" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="MEMBERENDDATE" ColumnName="MEMBERENDDATE" />
+                <ScalarProperty Name="MEMBERSTARTDATE" ColumnName="MEMBERSTARTDATE" />
+                <ScalarProperty Name="MEMBERID" ColumnName="MEMBERID" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="USERSTATUS" ColumnName="USERSTATUS" />
+                <ScalarProperty Name="USERTYPE" ColumnName="USERTYPE" />
+                <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+                <ScalarProperty Name="EDITUSERNAME" ColumnName="EDITUSERNAME" />
+                <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+                <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+                <ScalarProperty Name="EDITDATETIME" ColumnName="EDITDATETIME" />
+                <ScalarProperty Name="EDITUSERID" ColumnName="EDITUSERID" />
+                <ScalarProperty Name="CREATEDATETIME" ColumnName="CREATEDATETIME" />
+                <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="MOBILEPHONE" ColumnName="MOBILEPHONE" />
+                <ScalarProperty Name="LOGINPWD" ColumnName="LOGINPWD" />
+                <ScalarProperty Name="LOGINNAME" ColumnName="LOGINNAME" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTMS_TK_TIMEDTASK">
+            <EntityTypeMapping TypeName="Model.CTMS_TK_TIMEDTASK">
+              <MappingFragment StoreEntitySet="CTMS_TK_TIMEDTASK">
+                <ScalarProperty Name="FUNCTIONMARK" ColumnName="FUNCTIONMARK" />
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+                <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="EXECUTTIME" ColumnName="EXECUTTIME" />
+                <ScalarProperty Name="TASKSTATUS" ColumnName="TASKSTATUS" />
+                <ScalarProperty Name="PROCESSFUNCPAMETER" ColumnName="PROCESSFUNCPAMETER" />
+                <ScalarProperty Name="PROCESSFUNCNAME" ColumnName="PROCESSFUNCNAME" />
+                <ScalarProperty Name="PROCESSWCFURL" ColumnName="PROCESSWCFURL" />
+                <ScalarProperty Name="MSGLINKURL" ColumnName="MSGLINKURL" />
+                <ScalarProperty Name="MODELCODE" ColumnName="MODELCODE" />
+                <ScalarProperty Name="MESSAGEBODY" ColumnName="MESSAGEBODY" />
+                <ScalarProperty Name="RECEIVEROLE" ColumnName="RECEIVEROLE" />
+                <ScalarProperty Name="RECEIVEUSER" ColumnName="RECEIVEUSER" />
+                <ScalarProperty Name="ENDTIME" ColumnName="ENDTIME" />
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="STARTTIME" ColumnName="STARTTIME" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="TRIGGERTYPE" ColumnName="TRIGGERTYPE" />
+                <ScalarProperty Name="TIMEDTASKDEFINEID" ColumnName="TIMEDTASKDEFINEID" />
+                <ScalarProperty Name="TIMEDTASKID" ColumnName="TIMEDTASKID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTMS_TK_TIMEDTASKDEFINE">
+            <EntityTypeMapping TypeName="Model.CTMS_TK_TIMEDTASKDEFINE">
+              <MappingFragment StoreEntitySet="CTMS_TK_TIMEDTASKDEFINE">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+                <ScalarProperty Name="APPLYID" ColumnName="APPLYID" />
+                <ScalarProperty Name="FUNCTIONMARK" ColumnName="FUNCTIONMARK" />
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+                <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="DATASTATUS" ColumnName="DATASTATUS" />
+                <ScalarProperty Name="PROCESSFUNCPAMETER" ColumnName="PROCESSFUNCPAMETER" />
+                <ScalarProperty Name="PROCESSFUNCNAME" ColumnName="PROCESSFUNCNAME" />
+                <ScalarProperty Name="PROCESSWCFURL" ColumnName="PROCESSWCFURL" />
+                <ScalarProperty Name="MSGLINKURL" ColumnName="MSGLINKURL" />
+                <ScalarProperty Name="MODELCODE" ColumnName="MODELCODE" />
+                <ScalarProperty Name="MESSAGEBODY" ColumnName="MESSAGEBODY" />
+                <ScalarProperty Name="RECEIVEROLE" ColumnName="RECEIVEROLE" />
+                <ScalarProperty Name="RECEIVEUSER" ColumnName="RECEIVEUSER" />
+                <ScalarProperty Name="ENDTIME" ColumnName="ENDTIME" />
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="NEVEREXPIRE" ColumnName="NEVEREXPIRE" />
+                <ScalarProperty Name="STARTTIME" ColumnName="STARTTIME" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="HOWLONGYEARWEEKDAY" ColumnName="HOWLONGYEARWEEKDAY" />
+                <ScalarProperty Name="HOWLONGYEARWEEK" ColumnName="HOWLONGYEARWEEK" />
+                <ScalarProperty Name="HOWLONGYEARDAY" ColumnName="HOWLONGYEARDAY" />
+                <ScalarProperty Name="HOWLONGYEARMONTH" ColumnName="HOWLONGYEARMONTH" />
+                <ScalarProperty Name="HOWLONGMONTHWEEKDAY" ColumnName="HOWLONGMONTHWEEKDAY" />
+                <ScalarProperty Name="HOWLONGMONTHWEEK" ColumnName="HOWLONGMONTHWEEK" />
+                <ScalarProperty Name="HOWLONGMONTHDAY" ColumnName="HOWLONGMONTHDAY" />
+                <ScalarProperty Name="HOWLONGMONTH" ColumnName="HOWLONGMONTH" />
+                <ScalarProperty Name="DAYOFWEEK" ColumnName="DAYOFWEEK" />
+                <ScalarProperty Name="HOWLONGWEEKS" ColumnName="HOWLONGWEEKS" />
+                <ScalarProperty Name="DAYORWORKDAY" ColumnName="DAYORWORKDAY" />
+                <ScalarProperty Name="HOWLONGDAY" ColumnName="HOWLONGDAY" />
+                <ScalarProperty Name="TIMEDTYPE" ColumnName="TIMEDTYPE" />
+                <ScalarProperty Name="TRIGGERTYPE" ColumnName="TRIGGERTYPE" />
+                <ScalarProperty Name="TIMEDTASKDEFINEID" ColumnName="TIMEDTASKDEFINEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTMS_USEREVENT">
+            <EntityTypeMapping TypeName="Model.CTMS_USEREVENT">
+              <MappingFragment StoreEntitySet="CTMS_USEREVENT">
+                <ScalarProperty Name="EDITDATETIME" ColumnName="EDITDATETIME" />
+                <ScalarProperty Name="EDITUSERID" ColumnName="EDITUSERID" />
+                <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+                <ScalarProperty Name="LINKURL" ColumnName="LINKURL" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="MODELID" ColumnName="MODELID" />
+                <ScalarProperty Name="MODELTYPE" ColumnName="MODELTYPE" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="TOUSERTYPE" ColumnName="TOUSERTYPE" />
+                <ScalarProperty Name="TOUSER" ColumnName="TOUSER" />
+                <ScalarProperty Name="FROMUSER" ColumnName="FROMUSER" />
+                <ScalarProperty Name="ACTIONSTATUS" ColumnName="ACTIONSTATUS" />
+                <ScalarProperty Name="ENDTIME" ColumnName="ENDTIME" />
+                <ScalarProperty Name="RECEIPTTIME" ColumnName="RECEIPTTIME" />
+                <ScalarProperty Name="ACTIONINFO" ColumnName="ACTIONINFO" />
+                <ScalarProperty Name="ACTIONTYPE" ColumnName="ACTIONTYPE" />
+                <ScalarProperty Name="USERAPPLYID" ColumnName="USERAPPLYID" />
+                <ScalarProperty Name="EVENTID" ColumnName="EVENTID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

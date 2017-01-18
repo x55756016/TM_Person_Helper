@@ -1,0 +1,98 @@
+﻿
+<!-- List.html -->
+<style type="text/css">
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+</style>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            ctms_sys_userinfo
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-1 control-label">查询条件</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" ng-model="Keyword" />
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-info btn-block" ng-click="Search()">查询</button>
+                            </div>                          
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-info btn-block" ng-click="Add()">新建</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="overflow-x:scroll;width:100%;">
+                    <table class="table table-responsive table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                                        	                      		                            	                                <th style="min-width:100px;"> 登录名</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 用户中文名</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 登录密码</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 手机号码</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 邮箱</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 用户类型 医生=1,患者=2,管理员=3,医学编辑=4,客服 = 5,肿瘤专家 6</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 状态</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 会员等级</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 会员开始日期</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 会员结束日期</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 用户可用余额</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 用户头像地址</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 创建者名称</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 编辑者名称</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 所属者名称</th>
+                      		                      		                            	                      		                            	                                <th style="min-width:100px;"> 创建日期</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 编辑者id</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 编辑日期</th>
+                      		                      		                            	                                <th style="min-width:100px;"> 是否删除</th>
+                      		                      		                            	                      		                            	                      		                            	                      		                            	                      		                      			<th style="min-width: 120px;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in List">
+                                                                  	                                                                 	                                                                    		<td>{{x.LOGINNAME}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.USERNAME}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.LOGINPWD}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.MOBILEPHONE}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.EMAIL}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.USERTYPE}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.USERSTATUS}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.MEMBERID}}</td>
+                                	                                	                                                                 	                                    										<td>{{x.MEMBERSTARTDATE | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                 	                                    										<td>{{x.MEMBERENDDATE | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                 	                                                                    		<td>{{x.ACCOUNT}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.ICONPATH}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.CREATEUSERNAME}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.EDITUSERNAME}}</td>
+                                	                                	                                                                 	                                                                    		<td>{{x.OWNERNAME}}</td>
+                                	                                	                                                                 	                                                                 	                                    										<td>{{x.CREATEDATETIME | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                 	                                                                    		<td>{{x.EDITUSERID}}</td>
+                                	                                	                                                                 	                                    										<td>{{x.EDITDATETIME | date:'yyyy-MM-dd' }}</td>
+							                                        	                                                                 	                                                                    		<td>{{x.ISDELETED}}</td>
+                                	                                	                                                                 	                                                                 	                                                                 	                                                                 	                                                                <td><a href="javascript:void(0);" ng-click="Edit(x)">编辑</a> <a href="javascript:void(0);" ng-click="Remove(x)">删除</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="pager" class="pull-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--遮罩层-->
+<div class="loading-modal" ng-show="loading">
+    <div class="loading">
+        <img src="/Content/images/loading.gif" alt="" /><span>处理中，请稍候...</span>
+    </div>
+</div>
